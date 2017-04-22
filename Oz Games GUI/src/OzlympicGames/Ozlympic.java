@@ -2,7 +2,6 @@ package OzlympicGames;
 import java.util.*;
 import javafx.application.Application;
 
-
 /*
  * Advanced Programming Semester 1 2017 Assignment 1
  * Jake Novak s3609685
