@@ -11,6 +11,7 @@ public class Offical {
 	
 	
 	public Offical(int id, String name, String type, int age, String state, int score) {
+//		super(id, name,type, age, state, score);
 		this.setId(id);
 		this.setName(name);
 		this.setType(type);
@@ -73,6 +74,8 @@ public class Offical {
 	}
 
 	public void setScore(int score) {
+		score ++;
+		//TODO 
 		this.score = score;
 	}
 }

@@ -23,73 +23,25 @@ import javafx.application.Application;
 	public static void main(String[] args) {
 		
 		ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
+		ArrayList<Offical> offs = new ArrayList<Offical>();// Arraylist of Officials. And, yes I know it's spelled wrong
 		readFile r = new readFile();
 		
 		r.openFile();	
 		r.readFile(comp);
 		r.closeFile();
 		
-					
-					
-		
+		r.openFile();
+		r.readOffsFile(offs);
+		r.closeFile();
+
 //		TODO: Add exception catches 
 //		TODO: Look into XMLBeans
 		
 //		ArrayList<Athlete> comp = new ArrayList<Athlete>(); // The main arraylist that stores all athletes
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>(); // Arraylsit to store athletes for the next upcoming event 		
-		ArrayList<Offical> offs = new ArrayList<Offical>();// Arraylist of Officials. And, yes I know it's spelled wrong
 		ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
 		
-		Offical off1 = new Offical(1, "Lesie", "Offical", 35, "NSW", 0);
-		Offical off2 = new Offical(2, "Ben","Offical", 36,"VIC", 0);		
-		Offical off3 = new Offical(3,"Ann","Offical",33, "NSW", 0);
-		Offical off4 = new Offical(4,"Ron","Offical", 45, "NSW", 0);
-		Offical off5 = new Offical(4,"Tom","Offical", 31, "QLD", 0);
-				
-		offs.add(off1);
-		offs.add(off2);
-		offs.add(off3);
-		offs.add(off4);
-		offs.add(off5);
-				
-//		Cyclist cycle = new Cyclist(1, "Chloe Hosking","Cyclist",26, "VIC", 0); 
-//		Cyclist cycle2 = new Cyclist(2, "Sara Carrigan","Cyclist", 36,"NSW", 0); 
-//		Cyclist cycle3 = new Cyclist(3, "Ben Dyball", "Cyclist", 27,"NSW", 0);
-//		Cyclist cycle4 = new Cyclist(4, "Allan Davis","Cyclist", 36,"QLD", 0); 
-//		
-//		comp.add(cycle);
-//		comp.add(cycle2);
-//		comp.add(cycle3);
-//		comp.add(cycle4);
-//		
-//		Swimmer swim = new Swimmer(5, "Taylor McKeown","Swimmer", 22,"QLD", 0); 
-		
-//		Swimmer swim2 = new Swimmer(6, "Stephanie Rice", "Swimmer",28,"28", 0); 
-//		Swimmer swim3 = new Swimmer(7, "Cameron Delaney","Swimmer", 36,"NSW", 0); 
-//		Swimmer swim4 = new Swimmer(8, "Brenton Rickard","Swimmer", 33,"33", 0); 
-//		comp.add(swim);
-//		comp.add(swim2);
-//		comp.add(swim3);
-//		comp.add(swim4);
-//		
-//		Sprinter sprint = new Sprinter(9, "Jessica Thornton","Sprinter", 18,"NSW", 0);
-//		Sprinter sprint2 = new Sprinter(10, "Sally Pearson","Sprinter", 30,"TAS", 0);
-//		Sprinter sprint3 = new Sprinter(11, "Joel Milburn","Sprinter", 31,"WA", 0);
-//		Sprinter sprint4 = new Sprinter(12, "Tristan Thomas", "Sprinter", 25,"30", 0);
-//		comp.add(sprint);
-//		comp.add(sprint2);
-//		comp.add(sprint3);
-//		comp.add(sprint4);
-//		
-//		SuperAthlete superAth = new SuperAthlete(14, "Felicity Abram","Super", 30,"QLD", 0);
-//		SuperAthlete superAth2 = new SuperAthlete(15, "Miranda Carfrae","Super", 28,"VIC", 0);
-//		SuperAthlete superAth3 = new SuperAthlete(16, "Luke Bell","Super", 37," VIC", 0);
-//		SuperAthlete superAth4 = new SuperAthlete(17, "Pete Jacobs","Super", 35,"NSW", 0);
-//		comp.add(superAth);
-//		comp.add(superAth2);
-//		comp.add(superAth3);
-//		comp.add(superAth4);
-//				
+			
 		menu(comp, upcoming, loadArray, offs, done);//Launches the menu		
 	}
 	

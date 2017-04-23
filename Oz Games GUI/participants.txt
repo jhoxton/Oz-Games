@@ -14,3 +14,8 @@
 14 Miranda_Carfrae Super 28 VIC 0
 15 Luke_Bell Super 37 VIC 0
 16 Pete_Jacobs Super 35 NSW 0
+17 Lesie_Knope Official 35 NSW 0
+18 Ben_Wyatt Official 36 VIC 0		
+19 Ann_Perkins Official 33 NSW 0
+20 Ron_Swaston Official 43 NSW 0
+21 Chris_Trager Official 31 QLD 0

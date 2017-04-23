@@ -19,9 +19,7 @@ public class CyclingEvent extends Event {
 			Athlete currentAthlete = athletes.get(i);		
 			if	(currentAthlete instanceof Cyclist || currentAthlete instanceof SuperAthlete) {
 				tempArray.add(currentAthlete);								
-				} else {
-					System.out.println("No Cyclists found");
-				}
+				} 
 			}		
 		return tempArray;
 	}

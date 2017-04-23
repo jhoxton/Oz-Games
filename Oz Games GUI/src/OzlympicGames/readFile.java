@@ -9,18 +9,16 @@ public class readFile {
 	Scanner txt;
 	
 	public void openFile() {
-		
-		try 
-		{
-		txt = new Scanner (new File("participants.txt"));
+		try {
+			txt = new Scanner (new File("participants.txt"));
 		} catch (Exception e) {
-		System.out.println("Could not find info.txt");
+			System.out.println("Could not find info.txt");
 		}
 	}
-	//TODO use a counter each loop to identify athlete id?
 	
 	public ArrayList<Athlete> readFile (ArrayList<Athlete> comp) {
 		ArrayList<Athlete> inputText = new ArrayList<Athlete>(); 
+		
 		
 		while (txt.hasNext()){
 				
@@ -33,89 +31,60 @@ public class readFile {
 			
 			Athlete test = new Athlete(id, name,type, age, state, score);
 
-			if (test.getType().equals("Cyclist")) {
-				System.out.println("Cyclist");
-				
+			if (test.getType().equals("Cyclist")) {				
 				Cyclist cycleIn = new Cyclist(id, name,type, age, state, score);
-				System.out.println("Test 2 added " + cycleIn.getName());
-				comp.add(cycleIn);
-				
+//				System.out.println("Cyclist");
+//				System.out.println("Test 2 added " + cycleIn.getName());
+				comp.add(cycleIn);				
 			}
 			
 			else if (test.getType().equals("Swimmer")) {
-				System.out.println("Swimmer");
-				
 				Swimmer SwimIn = new Swimmer(id, name,type, age, state, score);
-				System.out.println("Test 3 added " + SwimIn.getName());
-				comp.add(SwimIn);
-				
+//				System.out.println("Swimmer");
+//				System.out.println("Test 3 added " + SwimIn.getName());
+				comp.add(SwimIn);				
 			}
 			
-			else if (test.getType().equals("Sprinter")) {
-				System.out.println("Sprinter");
-				
+			else if (test.getType().equals("Sprinter")) {				
 				Sprinter SprintIn = new Sprinter(id, name,type, age, state, score);
-				System.out.println("Test 4 added " + SprintIn.getName());
-				comp.add(SprintIn);
-				
+//				System.out.println("Sprinter");
+//				System.out.println("Test 4 added " + SprintIn.getName());
+				comp.add(SprintIn);				
 			}
 			else if (test.getType().equals("Super")) {
-				System.out.println("Super");
-				
 				Sprinter SuperIn = new Sprinter(id, name,type, age, state, score);
-				System.out.println("Test 5 added " + SuperIn.getName());
-				comp.add(SuperIn);
-				
-			}
-			
-			
-//			if(test.getType().equals("Fuck")); {	
-//				Cyclist test2 = new Cyclist(id, name,type, age, state, score);
-//				System.out.println("Cyclist added " + test.getName());
-//				comp.add(test2);
-//			} 
-			
-			
-//			if(test.getType() == "Swimmer"); {	
-//			
-//			System.out.println("Swimmer added " + test.getName());
-//			test3.setId(id);
-//			test3.setName(name);
-//			test3.setType(type);
-//			test3.setAge(age);
-//			test3.setState(state);
-//			test3.setScore(score);
-//			comp.add(test3);
-//		} 
-			
-//			} if (test.getType() == ("Sprinter"));{
-//				test = new Sprinter (score, state, state, score, state, score);
-//			} if  (test.getType() == ("Super"));{
-//				test = new SuperAthlete (score, state, state, score, state, score);				
-//			} 
-//			TODO Fix this if statement so missing info in the text file is ignored
-			
-//			test.setId(id);
-//			test.setName(name);
-//			test.setType(type);
-//			test.setAge(age);
-//			test.setState(state);
-//			test.setScore(score);
-			
-//			System.out.println("Looped athlete is currently " + test.getName() + test.getType());
-//			comp.add(test2);
-	
+//				System.out.println("Super");
+//				System.out.println("Test 5 added " + SuperIn.getName());
+				comp.add(SuperIn);				
+			}	
 		}
-		
-//		System.out.println("Array size is " + inputText.size());
-//		for (int i=0; i < inputText.size(); i++) {			
-//			Athlete currentAthlete = inputText.get(i);	
-//			System.out.println(currentAthlete.getName());
-//		}
-		
-	return inputText;			
+	return inputText;
 	}
 	
+	public ArrayList<Offical> readOffsFile(ArrayList<Offical> offs) {
+		ArrayList<Offical> inputOffs = new ArrayList<Offical>();
+		while (txt.hasNext()){
+			
+			int id = txt.nextInt();
+			String name = txt.next();
+			String type = txt.next();
+			int age = txt.nextInt();
+			String state = txt.next();
+			int score = txt.nextInt();
+			
+		Offical test = new Offical(id, name,type, age, state, score);
+		
+		if (test.getType().equals("Official")) {
+			Offical OffIn = new Offical(id, name,type, age, state, score);
+//			System.out.println("Official");
+//			System.out.println("Off added " + OffIn.getName());
+			offs.add(OffIn);				
+		}
+		
+		
+		}
+		return inputOffs;
+	}
 	public void closeFile() {
 		txt.close();	
 	}
