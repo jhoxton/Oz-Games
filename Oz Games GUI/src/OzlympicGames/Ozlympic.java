@@ -28,7 +28,15 @@ import javafx.application.Application;
 		r.openFile();	
 		r.readFile(comp);
 		r.closeFile();
-		System.out.println("Current added Athletes are ");
+		
+					for (int i=0; i < comp.size(); i++) {			
+						Athlete currentAthlete = comp.get(i);		
+						if	(currentAthlete instanceof Cyclist) {
+							System.out.println("Cyclist Found");							
+							} else {
+								System.out.println("No Cyclists found");
+							}
+						}	
 		
 //		TODO: Add exception catches 
 //		TODO: Look into XMLBeans
@@ -61,6 +69,7 @@ import javafx.application.Application;
 //		comp.add(cycle4);
 //		
 //		Swimmer swim = new Swimmer(5, "Taylor McKeown","Swimmer", 22,"QLD", 0); 
+		
 //		Swimmer swim2 = new Swimmer(6, "Stephanie Rice", "Swimmer",28,"28", 0); 
 //		Swimmer swim3 = new Swimmer(7, "Cameron Delaney","Swimmer", 36,"NSW", 0); 
 //		Swimmer swim4 = new Swimmer(8, "Brenton Rickard","Swimmer", 33,"33", 0); 
@@ -267,6 +276,7 @@ import javafx.application.Application;
 			Athlete currentAthlete = comp.get(i);			
 			System.out.println("=============");
 			System.out.println("Name:" +currentAthlete.getName());
+			System.out.println("Type: " + currentAthlete.getType());
 			System.out.println("Age:" +currentAthlete.getAge());
 			System.out.println("State:" +currentAthlete.getState());
 			System.out.println("Current Score:" +currentAthlete.getScore());			
