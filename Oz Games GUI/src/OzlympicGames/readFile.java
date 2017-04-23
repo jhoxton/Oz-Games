@@ -12,7 +12,7 @@ public class readFile {
 		
 		try 
 		{
-		txt = new Scanner (new File("info.txt"));
+		txt = new Scanner (new File("participants.txt"));
 		} catch (Exception e) {
 		System.out.println("Could not find info.txt");
 		}
@@ -21,11 +21,9 @@ public class readFile {
 	
 	public ArrayList<Athlete> readFile (ArrayList<Athlete> comp) {
 		ArrayList<Athlete> inputText = new ArrayList<Athlete>(); 
-
 		
 		while (txt.hasNext()){
-	
-			
+				
 			int id = txt.nextInt();
 			String name = txt.next();
 			String type = txt.next();
@@ -36,31 +34,40 @@ public class readFile {
 			Athlete test = new Athlete(id, name,type, age, state, score);
 
 			if (test.getType().equals("Cyclist")) {
-				System.out.println("String match");
+				System.out.println("Cyclist");
 				
-				Cyclist test2 = new Cyclist(id, name,type, age, state, score);
-				System.out.println("Test 2 added " + test2.getName());
-				comp.add(test2);
+				Cyclist cycleIn = new Cyclist(id, name,type, age, state, score);
+				System.out.println("Test 2 added " + cycleIn.getName());
+				comp.add(cycleIn);
 				
 			}
 			
 			else if (test.getType().equals("Swimmer")) {
-				System.out.println("String match");
+				System.out.println("Swimmer");
 				
-				Swimmer test3 = new Swimmer(id, name,type, age, state, score);
-				System.out.println("Test 3 added " + test3.getName());
-				comp.add(test3);
+				Swimmer SwimIn = new Swimmer(id, name,type, age, state, score);
+				System.out.println("Test 3 added " + SwimIn.getName());
+				comp.add(SwimIn);
 				
 			}
 			
 			else if (test.getType().equals("Sprinter")) {
-				System.out.println("String match");
+				System.out.println("Sprinter");
 				
-				Sprinter test4 = new Sprinter(id, name,type, age, state, score);
-				System.out.println("Test 4 added " + test4.getName());
-				comp.add(test4);
+				Sprinter SprintIn = new Sprinter(id, name,type, age, state, score);
+				System.out.println("Test 4 added " + SprintIn.getName());
+				comp.add(SprintIn);
 				
 			}
+			else if (test.getType().equals("Super")) {
+				System.out.println("Super");
+				
+				Sprinter SuperIn = new Sprinter(id, name,type, age, state, score);
+				System.out.println("Test 5 added " + SuperIn.getName());
+				comp.add(SuperIn);
+				
+			}
+			
 			
 //			if(test.getType().equals("Fuck")); {	
 //				Cyclist test2 = new Cyclist(id, name,type, age, state, score);

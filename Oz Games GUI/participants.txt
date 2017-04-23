@@ -1,0 +1,16 @@
+1 Chloe_Hosking Cyclist 26 VIC 0
+2 Sara_Carrigan Cyclist 36 NSW 0
+3 Ben_Dyball Cyclist 27 NSW  0
+4 Allan_Davis Cyclist 36 QLD 0
+5 Taylor_McKeown Swimmer 22 QLD 0 
+6 Stephanie_Rice Swimmer 28 NSW 0 
+7 Cameron_Delaney Swimmer 36 NSW 0 
+8 Brenton_Rickard Swimmer 33 TAS 0 
+9 Jessica_Thornton Sprinter 18 NSW 0
+10 Sally_Pearson Sprinter 30 TAS 0
+11 Joel_Milburn Sprinter 31 WA 0
+12 Tristan_Thomas Sprinter 25 WA 0
+13 Felicity_Abram Super 30 QLD 0
+14 Miranda_Carfrae Super 28 VIC 0
+15 Luke_Bell Super 37 VIC 0
+16 Pete_Jacobs Super 35 NSW 0

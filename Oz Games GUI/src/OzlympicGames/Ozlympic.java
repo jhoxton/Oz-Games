@@ -29,14 +29,8 @@ import javafx.application.Application;
 		r.readFile(comp);
 		r.closeFile();
 		
-					for (int i=0; i < comp.size(); i++) {			
-						Athlete currentAthlete = comp.get(i);		
-						if	(currentAthlete instanceof Cyclist) {
-							System.out.println("Cyclist Found");							
-							} else {
-								System.out.println("No Cyclists found");
-							}
-						}	
+					
+					
 		
 //		TODO: Add exception catches 
 //		TODO: Look into XMLBeans
