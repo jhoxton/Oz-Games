@@ -1,4 +1,4 @@
-package OzlympicGames;
+package application;
 
 public class Offical {
 	

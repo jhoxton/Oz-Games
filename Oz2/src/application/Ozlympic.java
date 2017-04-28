@@ -1,4 +1,4 @@
-package OzlympicGames;
+package application;
 //import javafx.application.*;
 //import javafx.event.*;
 //import javafx.scene.*;
@@ -7,8 +7,8 @@ package OzlympicGames;
 //import javafx.scene.layout.StackPane;
 //import javafx.application.Application;
 import java.util.*;
-import org.junit.*;
-import static org.junit.Assert.*;
+//import org.junit.*;
+//import static org.junit.Assert.*;
 
 /*
  * Advanced Programming Semester 1 2017 Assignment 1
@@ -22,39 +22,47 @@ import static org.junit.Assert.*;
 
 
 	public class Ozlympic {
-
-	static Scanner input = new Scanner(System.in);
+	
+		ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
+	static int i;
+		
 	protected static boolean eventSet = false;
 	public static int userPic= 0;
 	static Event upcoming = new Event();//This is the primary event object for each Game
+	public void setI(int i){
+		this.i = i;
+	}
 	
-//	public static void main(String[] args) {
-//	try {	
+	public int getI(){
+		return i;
+	}
+	public void start() {
+	try {	
 //		ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
-//		ArrayList<Offical> offs = new ArrayList<Offical>();// Arraylist of Officials. And, yes I know it's spelled wrong
-//		readFile r = new readFile();
-//		
-//		r.openFile();	
-//		r.readFile(comp);
-//		r.closeFile();
-//		
-//		r.openFile();
-//		r.readOffsFile(offs);
-//		r.closeFile();
-//
-////		TODO: Add exception catches 
-//
-//		ArrayList<Athlete> loadArray = new ArrayList<Athlete>(); // Arraylsit to store athletes for the next upcoming event 		
-//		ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
-//	
-//
+		ArrayList<Offical> offs = new ArrayList<Offical>();// Arraylist of Officials. And, yes I know it's spelled wrong
+		readFile r = new readFile();
+		
+		r.openFile();	
+		r.readFile(comp);
+		r.closeFile();
+		
+		r.openFile();
+		r.readOffsFile(offs);
+		r.closeFile();
+
+//		TODO: Add exception catches 
+
+		ArrayList<Athlete> loadArray = new ArrayList<Athlete>(); // Arraylsit to store athletes for the next upcoming event 		
+		ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
+	
+
 //		menu(comp, upcoming, loadArray, offs, done);//Launches the menu		
-//		
-//	}catch (Exception e) {
-//		System.out.println("Cannot find read file");
-//		}
-//	
-//	}
+		
+	}catch (Exception e) {
+		System.out.println("Cannot find read file");
+		}
+	
+	}
 	
 
 	public static void menu(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
@@ -73,9 +81,10 @@ import static org.junit.Assert.*;
 		System.out.println("Enter an Option: ");
 		
 		try {
-		int option = input.nextInt();
+	int input;
+		int option = 10;
 			switch(option) {
-				case 1: selectGame(comp, upcoming, loadArray, offs, done);
+				case 1: selectGame( option, comp, upcoming, loadArray, offs, done);
 					break;					
 				case 2: predictGame(comp, loadArray, upcoming, offs, done);
 					break;
@@ -102,12 +111,12 @@ import static org.junit.Assert.*;
 			
 		}
 	
-	static void selectGame(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
-		
+	static void selectGame(int option, ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
+		i = i =2;
 		Event currentEvent = new Event();		
 	
 		System.out.println("Select event to hold:\n1) Swimming Event\n2) Sprinting Event\n3) Cycling Event");
-		int option = input.nextInt();
+
 		loadArray = comp;
 		
 //		System.out.println(loadArray.size()); //Tests the loadArray is correct and that no athletes have been removed 
@@ -182,7 +191,8 @@ import static org.junit.Assert.*;
 				System.out.println("Name: " + loopAth.getName()+ "\nID: " + loopAth.getId()+  "\n======== ");	
 			}
 			System.out.println("Enter ID of athlete you predict will win: ");
-			userPic = input.nextInt();
+			Random input;
+			userPic = 10;
 			menu(comp, upcoming, loadArray, offs, done);
 		}		
 	}
