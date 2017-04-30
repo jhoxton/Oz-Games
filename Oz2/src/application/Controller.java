@@ -11,11 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.event.Event;
+import javafx.scene.control.TextField;
 
 
 public class Controller {
-	public Ozlympic oz = new Ozlympic();
-
+	private Ozlympic oz = new Ozlympic();
+	
 	@FXML
 	private Button test;
 	@FXML
@@ -23,13 +24,24 @@ public class Controller {
 	@FXML
 	private Button displayAthletes;
 	@FXML
+	private Button displayOfficials;
+	@FXML
 	private  TextArea info;
+	@FXML
+	private  TextArea nextEvent;
 	
 	@FXML
 	private void initialize() {
+		displayEvent();
+//		Ozylmpic.importData();
 		oz.importData();
 	}
-
+	@FXML
+	private void displayEvent(){
+		
+		nextEvent.setText("The next event is: " +  oz.upcoming.getName());		
+	}
+	
 	@FXML
 	private void testing(){
 		System.out.println("TEST BUTTON PLEASE IGNORE");
@@ -41,28 +53,30 @@ public class Controller {
 	    stage.close();
 	}
 	@FXML
-	private void displayAthletes() { //Prints out stats of all athletes
-		for(int i = 0; i < oz.comp.size(); i++) {			
-			Athlete currentAthlete = oz.comp.get(i);			
+	private void displayOfficials() { //Prints out officials stats
+		info.setText("");
+		for(int i = 0; i < oz.offs.size(); i++) {	
+			Official currentOff = oz.offs.get(i);
+			info.appendText("\nName: " + currentOff.getName());
+			info.appendText("\nID:" + currentOff.getId());
 			info.appendText("\n");
+			
+		}
+	}
+	@FXML
+	private void displayAthletes() { //Prints out stats of all athletes
+		info.setText("");
+		for(int i = 0; i < oz.comp.size(); i++) {			
+			Athlete currentAthlete = oz.comp.get(i);						
 			info.appendText("\nName: " +currentAthlete.getName());
+			info.appendText("\nID: " + currentAthlete.getId());
 			info.appendText("\nType: " + currentAthlete.getType());
 			info.appendText("\nAge: " +currentAthlete.getAge());
 			info.appendText("\nState: " +currentAthlete.getState());
 			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");
-//		oz.info();
-//		info.setText("String");		
+
 		}
 	}
-	
-
-//	
-//	public void testClick(){
-//		button1.setOnAction(e -> {
-//			System.out.println("dasd");
-//			label1.setText("fg");
-//		});
-//	} 
 
 	  
 }

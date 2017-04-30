@@ -61,8 +61,8 @@ public class readFile {
 	return inputText;
 	}
 	
-	public ArrayList<Offical> readOffsFile(ArrayList<Offical> offs) {
-		ArrayList<Offical> inputOffs = new ArrayList<Offical>();
+	public ArrayList<Official> readOffsFile(ArrayList<Official> offs) {
+		ArrayList<Official> inputOffs = new ArrayList<Official>();
 		while (txt.hasNext()){
 			
 			int id = txt.nextInt();
@@ -72,10 +72,10 @@ public class readFile {
 			String state = txt.next();
 			int score = txt.nextInt();
 			
-		Offical test = new Offical(id, name,type, age, state, score);
+			Official test = new Official(id, name,type, age, state, score);
 		
 		if (test.getType().equals("Official")) {
-			Offical OffIn = new Offical(id, name,type, age, state, score);
+			Official OffIn = new Official(id, name,type, age, state, score);
 //			System.out.println("Official");
 //			System.out.println("Off added " + OffIn.getName());
 			offs.add(OffIn);				

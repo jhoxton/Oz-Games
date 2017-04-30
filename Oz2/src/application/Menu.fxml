@@ -18,6 +18,11 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Button>
+            <Button id="button2" fx:id="displayOfficials" mnemonicParsing="false" onAction="#displayOfficials" text="Display Officials">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="test" mnemonicParsing="false" onAction="#testing" text="Test Button">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -34,13 +39,20 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="SWIM" />
-            <Button mnemonicParsing="false" text="CYCLE" />
-            <Button mnemonicParsing="false" text="Sprint" />
-         </children>
-      </VBox>
+            <TextArea fx:id="nextEvent" prefHeight="24.0" prefWidth="229.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextArea>
+         </children></VBox>
    </center>
    <right>
-      <TextArea fx:id="info" prefHeight="400.0" prefWidth="180.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="info" prefHeight="380.0" prefWidth="194.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding></TextArea>
    </right>
 </BorderPane>

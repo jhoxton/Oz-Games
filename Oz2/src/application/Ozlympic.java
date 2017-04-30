@@ -1,11 +1,11 @@
 package application;
-//import javafx.application.*;
-//import javafx.event.*;
-//import javafx.scene.*;
-//import javafx.stage.Stage;
-//import javafx.scene.control.*;
-//import javafx.scene.layout.StackPane;
-//import javafx.application.Application;
+import javafx.application.*;
+import javafx.event.*;
+import javafx.scene.*;
+import javafx.stage.Stage;
+import javafx.scene.control.*;
+import javafx.scene.layout.StackPane;
+import javafx.application.Application;
 import java.util.*;
 //import org.junit.*;
 //import static org.junit.Assert.*;
@@ -27,24 +27,18 @@ import javafx.scene.control.Button;
 	public class Ozlympic {
 	
 	static ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
+	static ArrayList<Official> offs = new ArrayList<Official>();
 	static int i;
 		
 	protected static boolean eventSet = false;
 	public static int userPic= 0;
 	static Event upcoming = new Event();//This is the primary event object for each Game
 	
-	public void setI(int i){
-		this.i = i;
-	}
-	
-	public int getI(){
-		return i;
-	}
 	public static void importData() {
 	try {	
 	
 //		ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
-		ArrayList<Offical> offs = new ArrayList<Offical>();// Arraylist of Officials. And, yes I know it's spelled wrong
+//		ArrayList<Official> offs = new ArrayList<Official>();// Arraylist of Officials. And, yes I know it's spelled wrong
 		readFile r = new readFile();
 		
 		r.openFile();	
@@ -57,8 +51,8 @@ import javafx.scene.control.Button;
 
 //		TODO: Add exception catches 
 
-		ArrayList<Athlete> loadArray = new ArrayList<Athlete>(); // Arraylsit to store athletes for the next upcoming event 		
-		ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
+//		ArrayList<Athlete> loadArray = new ArrayList<Athlete>(); // Arraylsit to store athletes for the next upcoming event 		
+//		ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
 	
 
 //		menu(comp, upcoming, loadArray, offs, done);//Launches the menu		
@@ -69,19 +63,19 @@ import javafx.scene.control.Button;
 	
 	}
 	
-	public static void info(){
-		System.out.println("Eh");
-		for(int i = 0; i < comp.size(); i++) {			
-			Athlete currentAthlete = comp.get(i);			
-			System.out.println("=============");
-			System.out.println("Name:" +currentAthlete.getName());
-			System.out.println("Type: " + currentAthlete.getType());
-			System.out.println("Age:" +currentAthlete.getAge());
-			System.out.println("State:" +currentAthlete.getState());
-			System.out.println("Current Score:" +currentAthlete.getScore());			
-		}
-	}
-	public static void menu(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
+//	public static void info(){
+//		System.out.println("Eh");
+//		for(int i = 0; i < comp.size(); i++) {			
+//			Athlete currentAthlete = comp.get(i);			
+//			System.out.println("=============");
+//			System.out.println("Name:" +currentAthlete.getName());
+//			System.out.println("Type: " + currentAthlete.getType());
+//			System.out.println("Age:" +currentAthlete.getAge());
+//			System.out.println("State:" +currentAthlete.getState());
+//			System.out.println("Current Score:" +currentAthlete.getScore());			
+//		}
+//	}
+	public static void menu(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
 		
 		System.out.println("\n==============");
 		
@@ -127,8 +121,8 @@ import javafx.scene.control.Button;
 			
 		}
 	
-	static void selectGame(int option, ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
-		i = i =2;
+	static void selectGame(int option, ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
+	
 		Event currentEvent = new Event();		
 	
 		System.out.println("Select event to hold:\n1) Swimming Event\n2) Sprinting Event\n3) Cycling Event");
@@ -187,16 +181,16 @@ import javafx.scene.control.Button;
 			
 			currentEvent = upcoming;
 
-			Offical test = pickOffical(offs);
-			System.out.println("Overseeing offical is: " + test.getName());
-			upcoming.setOffical(test);
-			//Assigns an official to a game
+			Official test = pickOfficial(offs);
+			System.out.println("Overseeing Official is: " + test.getName());
+			upcoming.setOfficial(test);
+			//Assigns an Official to a game
 
 			menu(comp, upcoming, loadArray, offs, done); 
 			return;		
 	} 
 	
-	static void predictGame(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, Event upcoming, ArrayList<Offical> offs, ArrayList<String> done) {
+	static void predictGame(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, Event upcoming, ArrayList<Official> offs, ArrayList<String> done) {
 		
 		if(eventSet ==false ) {
 			System.out.println("Please select an event to hold first");			
@@ -213,13 +207,13 @@ import javafx.scene.control.Button;
 		}		
 	}
 	
-	static void startGame(ArrayList<Athlete> comp, Event upcoming,ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
+	static void startGame(ArrayList<Athlete> comp, Event upcoming,ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
 		
 		if(eventSet ==false ) {
 			System.out.println("Please select an event to hold first");
 			menu(comp, upcoming, loadArray, offs, done);
 		} else {							
-			System.out.println("Offical for " + upcoming.getCode() + " is " + upcoming.getOffical().getName());
+			System.out.println("Official for " + upcoming.getCode() + " is " + upcoming.getOfficial().getName());
 			upcoming.runEvent(comp, upcoming, loadArray, offs);	//The event launches here
 			
 			Event finEvent = new Event();	
@@ -244,7 +238,7 @@ import javafx.scene.control.Button;
 		
 	}
 
-	static void displayGames(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
+	static void displayGames(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
 		
 		for (int i = 0; i < done.size(); i++) {
 			String test = done.get(i);
@@ -253,7 +247,7 @@ import javafx.scene.control.Button;
 		menu(comp, upcoming, loadArray, offs, done);		
 	}
 
-	static void displayAthletes(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Offical> offs,  ArrayList<String> done) {
+	static void displayAthletes(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Official> offs,  ArrayList<String> done) {
 		
 		for(int i = 0; i < comp.size(); i++) {			
 			Athlete currentAthlete = comp.get(i);			
@@ -268,9 +262,9 @@ import javafx.scene.control.Button;
 		menu(comp, upcoming, loadArray, offs, done);
 	}
 
-	public static Offical pickOffical(ArrayList<Offical> offs) {
+	public static Official pickOfficial(ArrayList<Official> offs) {
 	    Random rand = new Random(); 
-	    Offical randomOff = offs.get(rand.nextInt(offs.size()));
+	    Official randomOff = offs.get(rand.nextInt(offs.size()));
 	    return randomOff;
 	}
 }

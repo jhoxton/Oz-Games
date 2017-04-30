@@ -13,12 +13,12 @@ public class Event {
 	private String second;
 	private String third;
 	private int winnerId;	
-	private Offical offical;
+	private Official offical;
 	
 	public ArrayList<Athlete> athletes= new ArrayList<Athlete>();
-	public ArrayList<Offical> officalInEvent = new ArrayList<Offical>();
+	public ArrayList<Official> officalInEvent = new ArrayList<Official>();
 		
-	public ArrayList<Athlete> runEvent (ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray,ArrayList<Offical> offs) {
+	public ArrayList<Athlete> runEvent (ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray,ArrayList<Official> offs) {
 				
 		officalInEvent = offs;		
 		this.setCode(code);	//Assigns a code to the event	
@@ -200,11 +200,11 @@ public class Event {
 		this.winnerId = winnerId;
 	}
 
-	public Offical getOffical() {
+	public Official getOfficial() {
 		return offical;
 	}
 
-	public void setOffical(Offical offical) {
+	public void setOfficial(Official offical) {
 		this.offical = offical;
 	}
 	

@@ -1,6 +1,6 @@
 package application;
 
-public class Offical {
+public class Official {
 	
 	private int id;
 	private String name;
@@ -10,7 +10,7 @@ public class Offical {
 	private int score;
 	
 	
-	public Offical(int id, String name, String type, int age, String state, int score) {
+	public Official(int id, String name, String type, int age, String state, int score) {
 		this.setId(id);
 		this.setName(name);
 		this.setType(type);
