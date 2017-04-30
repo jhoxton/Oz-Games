@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
@@ -22,9 +23,8 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+    
 	public static void main(String[] args) {
-		Ozlympic oz = new Ozlympic();
-		oz.start();
 		launch(args);
 	
 	}

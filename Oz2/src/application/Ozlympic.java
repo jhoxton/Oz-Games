@@ -10,6 +10,9 @@ import java.util.*;
 //import org.junit.*;
 //import static org.junit.Assert.*;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+
 /*
  * Advanced Programming Semester 1 2017 Assignment 1
  * Jake Novak s3609685
@@ -23,12 +26,13 @@ import java.util.*;
 
 	public class Ozlympic {
 	
-		ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
+	static ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
 	static int i;
 		
 	protected static boolean eventSet = false;
 	public static int userPic= 0;
 	static Event upcoming = new Event();//This is the primary event object for each Game
+	
 	public void setI(int i){
 		this.i = i;
 	}
@@ -36,8 +40,9 @@ import java.util.*;
 	public int getI(){
 		return i;
 	}
-	public void start() {
+	public static void importData() {
 	try {	
+	
 //		ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
 		ArrayList<Offical> offs = new ArrayList<Offical>();// Arraylist of Officials. And, yes I know it's spelled wrong
 		readFile r = new readFile();
@@ -64,7 +69,18 @@ import java.util.*;
 	
 	}
 	
-
+	public static void info(){
+		System.out.println("Eh");
+		for(int i = 0; i < comp.size(); i++) {			
+			Athlete currentAthlete = comp.get(i);			
+			System.out.println("=============");
+			System.out.println("Name:" +currentAthlete.getName());
+			System.out.println("Type: " + currentAthlete.getType());
+			System.out.println("Age:" +currentAthlete.getAge());
+			System.out.println("State:" +currentAthlete.getState());
+			System.out.println("Current Score:" +currentAthlete.getScore());			
+		}
+	}
 	public static void menu(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Offical> offs, ArrayList<String> done) {
 		
 		System.out.println("\n==============");
