@@ -75,54 +75,59 @@ import javafx.scene.control.Button;
 //			System.out.println("Current Score:" +currentAthlete.getScore());			
 //		}
 //	}
-	public static void menu(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
-		
-		System.out.println("\n==============");
-		
-		System.out.println("Ozlympic Games\n==============");
-		
-//		if(eventSet == true) {
-//			System.out.println("The next event to be held is a " + upcoming.getName() + "\n");
-//		} else {
-//			System.out.println("No upcoming event\n");
+//	public static void menu(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
+//		
+//		System.out.println("\n==============");
+//		
+//		System.out.println("Ozlympic Games\n==============");
+//		
+////		if(eventSet == true) {
+////			System.out.println("The next event to be held is a " + upcoming.getName() + "\n");
+////		} else {
+////			System.out.println("No upcoming event\n");
+////		}
+//		
+//		System.out.println("1) Select a Game to Run\n2) Predict the Winner of Game\n3) Start the Game\n4) Display the results of all Games\n5) Display points of all athletes\n6) Exit\n");
+//		System.out.println("Enter an Option: ");
+//		
+//		try {
+//	int input;
+//		int option = 10;
+//			switch(option) {
+//				case 1: selectGame( option, comp, upcoming, loadArray, offs, done);
+//					break;					
+////				case 2: predictGame(comp, loadArray, upcoming, offs, done);
+////					break;
+//				case 3: startGame(comp, upcoming, loadArray, offs, done); 				
+//					break;
+//				case 4: displayGames(comp, loadArray, offs, done);
+//					break;
+////				case 5: displayAthletes(comp, loadArray, offs, done);
+////					break;
+//				case 6: 
+//					System.out.println("Arrays cleared. Games reset. Goodbye!");
+//					System.exit(0);
+//					break;
+//				default:
+//					System.out.println("Invalid option!");
+//					menu(comp, upcoming, loadArray, offs, done);
+//			}
+//		}catch (Exception e) {
+//			System.out.println("Invalid input\nPlease enter a number between 1-6");
+//			System.out.println();			
+//			}
+//		
+//		return;
+//			
 //		}
-		
-		System.out.println("1) Select a Game to Run\n2) Predict the Winner of Game\n3) Start the Game\n4) Display the results of all Games\n5) Display points of all athletes\n6) Exit\n");
-		System.out.println("Enter an Option: ");
-		
-		try {
-	int input;
-		int option = 10;
-			switch(option) {
-				case 1: selectGame( option, comp, upcoming, loadArray, offs, done);
-					break;					
-//				case 2: predictGame(comp, loadArray, upcoming, offs, done);
-//					break;
-				case 3: startGame(comp, upcoming, loadArray, offs, done); 				
-					break;
-				case 4: displayGames(comp, loadArray, offs, done);
-					break;
-//				case 5: displayAthletes(comp, loadArray, offs, done);
-//					break;
-				case 6: 
-					System.out.println("Arrays cleared. Games reset. Goodbye!");
-					System.exit(0);
-					break;
-				default:
-					System.out.println("Invalid option!");
-					menu(comp, upcoming, loadArray, offs, done);
-			}
-		}catch (Exception e) {
-			System.out.println("Invalid input\nPlease enter a number between 1-6");
-			System.out.println();			
-			}
-		
-		return;
-			
-		}
-	
+//	
 	static void selectGame(int option, ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
 	
+		
+//		USE THIS CODE TO WRITE A METHOD THAT RETURNS THE CORRECT TYPE OF ATHLETE
+//		THEN USE THE REST TO RUN THE MATCH, AFTER USER HAS SELECTED THE CORRECT TYPES
+		
+		
 		Event currentEvent = new Event();		
 	
 		System.out.println("Select event to hold:\n1) Swimming Event\n2) Sprinting Event\n3) Cycling Event");
@@ -186,7 +191,7 @@ import javafx.scene.control.Button;
 			upcoming.setOfficial(test);
 			//Assigns an Official to a game
 
-			menu(comp, upcoming, loadArray, offs, done); 
+//			menu(comp, upcoming, loadArray, offs, done); 
 			return;		
 	} 
 	
@@ -211,7 +216,7 @@ import javafx.scene.control.Button;
 		
 		if(eventSet ==false ) {
 			System.out.println("Please select an event to hold first");
-			menu(comp, upcoming, loadArray, offs, done);
+//			menu(comp, upcoming, loadArray, offs, done);
 		} else {							
 			System.out.println("Official for " + upcoming.getCode() + " is " + upcoming.getOfficial().getName());
 			upcoming.runEvent(comp, upcoming, loadArray, offs);	//The event launches here
@@ -234,7 +239,7 @@ import javafx.scene.control.Button;
 		done.add(result);
 		
 		eventSet = false;
-		menu(comp, upcoming, loadArray, offs, done);		
+//		menu(comp, upcoming, loadArray, offs, done);		
 		
 	}
 
@@ -244,7 +249,7 @@ import javafx.scene.control.Button;
 			String test = done.get(i);
 		System.out.println(test);
 		}		
-		menu(comp, upcoming, loadArray, offs, done);		
+//		menu(comp, upcoming, loadArray, offs, done);		
 	}
 
 //	static void displayAthletes(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Official> offs,  ArrayList<String> done) {

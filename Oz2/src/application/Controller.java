@@ -22,6 +22,8 @@ public class Controller {
 	@FXML
 	private Button quit;
 	@FXML
+	private Button select;
+	@FXML
 	private Button displayAthletes;
 	@FXML
 	private Button displayOfficials;
@@ -37,6 +39,10 @@ public class Controller {
 		displayEvent();
 //		Ozylmpic.importData();
 		oz.importData();
+	}
+	@FXML
+	private void selectGame() {
+		//TODO Launch a new scene here!
 	}
 	@FXML
 	private void displayEvent(){
@@ -79,14 +85,15 @@ public class Controller {
 	private void displayAthletes() { //Prints out stats of all athletes
 		info.setText("");
 		for(int i = 0; i < oz.comp.size(); i++) {			
+			info.appendText("====================\n");
 			Athlete currentAthlete = oz.comp.get(i);						
-			info.appendText("\nName: " +currentAthlete.getName());
+			info.appendText("Name: " +currentAthlete.getName());
 			info.appendText("\nID: " + currentAthlete.getId());
-			info.appendText("\nType: " + currentAthlete.getType());
+			info.appendText("\nSport: " + currentAthlete.getType());
 			info.appendText("\nAge: " +currentAthlete.getAge());
 			info.appendText("\nState: " +currentAthlete.getState());
 			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");
-
+			
 		}
 	}
 
