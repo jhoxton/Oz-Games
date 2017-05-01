@@ -94,13 +94,23 @@ public class Controller {
 			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");			
 		}
 	}
+//	@FXML
+//	private void selectGame(ActionEvent event) throws IOException {
+//		choiceBox(event);
+//		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
+//		Scene gamePageScene = new Scene(gamePage);
+//		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//		thisStage.setScene(gamePageScene);
+//		thisStage.show();		
+//	}
+	
 	@FXML
-	private void selectGame(ActionEvent event) throws IOException {
-		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
-		Scene gamePageScene = new Scene(gamePage);
+	//THIS IS ATTACHED TO THE SELECT BUTTON
+	private void choiceBox(ActionEvent event) throws IOException {
+		Parent alertPage =FXMLLoader.load(getClass().getResource("AlertBox.fxml"));
+		Scene alertPageScene = new Scene(alertPage);
 		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		thisStage.setScene(gamePageScene);
+		thisStage.setScene(alertPageScene);
 		thisStage.show();		
 	}
-	  
 }

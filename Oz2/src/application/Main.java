@@ -24,14 +24,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();	
 	}
-	
-//	public void secondStage() throws IOException { //Sets up the secondary (select game) stage
-//		BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("SelectGame.fxml"));
-//		Scene scene2 = new Scene(root,400,400);
-//		scene2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-//		primaryStage.setScene(scene2);
-//		primaryStage.show();
-//}
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {	
