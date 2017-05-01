@@ -1,10 +1,15 @@
 package application;
 
+import java.io.IOException;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,12 +42,7 @@ public class Controller {
 	@FXML
 	private void initialize() {
 		displayEvent();
-//		Ozylmpic.importData();
 		oz.importData();
-	}
-	@FXML
-	private void selectGame() {
-		//TODO Launch a new scene here!
 	}
 	@FXML
 	private void displayEvent(){
@@ -77,8 +77,7 @@ public class Controller {
 			Official currentOff = oz.offs.get(i);
 			info.appendText("\nName: " + currentOff.getName());
 			info.appendText("\nID:" + currentOff.getId());
-			info.appendText("\n");
-			
+			info.appendText("\n");			
 		}
 	}
 	@FXML
@@ -92,10 +91,16 @@ public class Controller {
 			info.appendText("\nSport: " + currentAthlete.getType());
 			info.appendText("\nAge: " +currentAthlete.getAge());
 			info.appendText("\nState: " +currentAthlete.getState());
-			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");
-			
+			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");			
 		}
 	}
-
+	@FXML
+	private void selectGame(ActionEvent event) throws IOException {
+		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
+		Scene gamePageScene = new Scene(gamePage);
+		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		thisStage.setScene(gamePageScene);
+		thisStage.show();		
+	}
 	  
 }

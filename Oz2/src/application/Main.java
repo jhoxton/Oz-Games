@@ -1,6 +1,8 @@
 package application;
 	
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -10,24 +12,40 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
-	@Override
-	public void start(Stage primaryStage) {
-		try {
+	
+	public static Stage primaryStage;
+	private Scene scene1;
+	private Scene scene2;
+
+	public void primaryStage() throws IOException { //Sets up the primary stage
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Menu.fxml"));
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
+			primaryStage.show();	
+	}
+	
+//	public void secondStage() throws IOException { //Sets up the secondary (select game) stage
+//		BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("SelectGame.fxml"));
+//		Scene scene2 = new Scene(root,400,400);
+//		scene2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+//		primaryStage.setScene(scene2);
+//		primaryStage.show();
+//}
+	@Override
+	public void start(Stage primaryStage) {
+		try {	
+			this.primaryStage = primaryStage;
+			this.primaryStage.setTitle("Ozlympic Games");			
+			primaryStage();		
+		}	catch(Exception e) {
+				e.printStackTrace();
 		}
 	}
-    
 	
 	
 	public static void main(String[] args) {
-		launch(args);
-	
+		launch(args);	
 	}
 	
 
