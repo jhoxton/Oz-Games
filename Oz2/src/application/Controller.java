@@ -29,6 +29,8 @@ public class Controller {
 	private  TextArea info;
 	@FXML
 	private  TextArea nextEvent;
+	@FXML
+	private Button pastGames;
 	
 	@FXML
 	private void initialize() {
@@ -38,8 +40,18 @@ public class Controller {
 	}
 	@FXML
 	private void displayEvent(){
-		
-		nextEvent.setText("The next event is: " +  oz.upcoming.getName());		
+		if (oz.eventSet == true) {
+			nextEvent.setText("The next event is: " +  oz.upcoming.getName());
+		} else {
+			nextEvent.setText("No upcoming events");
+		}
+	}
+	@FXML
+	private void printGames() {
+		for (int i = 0; i < oz.done.size(); i++) {
+			String test = oz.done.get(i);
+		info.appendText(test);
+		}		
 	}
 	
 	@FXML
