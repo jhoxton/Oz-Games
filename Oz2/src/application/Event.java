@@ -136,11 +136,6 @@ public class Event {
 		this.athletes = athletes;
 		return athletes;				
 	}
-
-	public ArrayList<Athlete> pickAthletes(ArrayList<Athlete> athletes){
-		//TODO Pick 4 - 8 from athletes
-		return athletes;
-	}
 	
 	public String getName() {	
 		return name;

@@ -19,17 +19,17 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <Button fx:id="sprint" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selectGame" text="Sprinting Event" textAlignment="CENTER">
+            <Button fx:id="sprint" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sprintEvent" text="Sprinting Event" textAlignment="CENTER">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Cycling Event" textAlignment="CENTER">
+            <Button fx:id="cycle" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#cycleEvent" text="Cycling Event" textAlignment="CENTER">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Swimming Event" textAlignment="CENTER">
+            <Button fx:id="swim" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#swimEvent" text="Swimming Event" textAlignment="CENTER">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>

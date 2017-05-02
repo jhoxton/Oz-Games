@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
 
 
 public class Controller {
-	public static Ozlympic oz = new Ozlympic();
+//	public static Ozlympic oz = new Ozlympic();
 	
 	@FXML
 	private Button test;
@@ -42,20 +42,38 @@ public class Controller {
 	@FXML
 	private void initialize() {
 		displayEvent();
-		oz.importData();
+//		oz.importData();
+		
+		Ozlympic.importData();
 	}
 	@FXML
 	private void displayEvent(){
-		if (oz.eventSet == true) {
-			nextEvent.setText("The next event is: " +  oz.upcoming.getName());
+		if (Ozlympic.eventSet	== true) {
+			nextEvent.setText("The next event is: " +  Ozlympic.upcoming.getName() + "\n" +Ozlympic.upcoming.getCode());
 		} else {
 			nextEvent.setText("No upcoming events");
 		}
+//		Main.oz
 	}
+
+//	private void displayEvent(){
+//		if (Main.oz.eventSet	== true) {
+//			nextEvent.setText("The next event is: " +  Main.oz.upcoming.getName());
+//		} else {
+//			nextEvent.setText("No upcoming events");
+//		}
+//	}
+//	@FXML
+//	private void printGames() {
+//		for (int i = 0; i < oz.done.size(); i++) {
+//			String test = oz.done.get(i);
+//		info.appendText(test);
+//		}		
+//	}
 	@FXML
 	private void printGames() {
-		for (int i = 0; i < oz.done.size(); i++) {
-			String test = oz.done.get(i);
+		for (int i = 0; i < Ozlympic.done.size(); i++) {
+			String test = Ozlympic.done.get(i);
 		info.appendText(test);
 		}		
 	}
@@ -73,19 +91,28 @@ public class Controller {
 	@FXML
 	private void displayOfficials() { //Prints out officials stats
 		info.setText("");
-		for(int i = 0; i < oz.offs.size(); i++) {	
-			Official currentOff = oz.offs.get(i);
+		for(int i = 0; i < Ozlympic.offs.size(); i++) {	
+			Official currentOff = Ozlympic.offs.get(i);
 			info.appendText("\nName: " + currentOff.getName());
 			info.appendText("\nID:" + currentOff.getId());
 			info.appendText("\n");			
 		}
 	}
+//	private void displayOfficials() { //Prints out officials stats
+//		info.setText("");
+//		for(int i = 0; i < oz.offs.size(); i++) {	
+//			Official currentOff = oz.offs.get(i);
+//			info.appendText("\nName: " + currentOff.getName());
+//			info.appendText("\nID:" + currentOff.getId());
+//			info.appendText("\n");			
+//		}
+//	}
 	@FXML
 	private void displayAthletes() { //Prints out stats of all athletes
 		info.setText("");
-		for(int i = 0; i < oz.comp.size(); i++) {			
+		for(int i = 0; i < Ozlympic.comp.size(); i++) {			
 			info.appendText("====================\n");
-			Athlete currentAthlete = oz.comp.get(i);						
+			Athlete currentAthlete = Ozlympic.comp.get(i);						
 			info.appendText("Name: " +currentAthlete.getName());
 			info.appendText("\nID: " + currentAthlete.getId());
 			info.appendText("\nSport: " + currentAthlete.getType());
@@ -94,16 +121,20 @@ public class Controller {
 			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");			
 		}
 	}
-//	@FXML
-//	private void selectGame(ActionEvent event) throws IOException {
-//		choiceBox(event);
-//		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
-//		Scene gamePageScene = new Scene(gamePage);
-//		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//		thisStage.setScene(gamePageScene);
-//		thisStage.show();		
+//	private void displayAthletes() { //Prints out stats of all athletes
+//		info.setText("");
+//		for(int i = 0; i < oz.comp.size(); i++) {			
+//			info.appendText("====================\n");
+//			Athlete currentAthlete = oz.comp.get(i);						
+//			info.appendText("Name: " +currentAthlete.getName());
+//			info.appendText("\nID: " + currentAthlete.getId());
+//			info.appendText("\nSport: " + currentAthlete.getType());
+//			info.appendText("\nAge: " +currentAthlete.getAge());
+//			info.appendText("\nState: " +currentAthlete.getState());
+//			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");			
+//		}
 //	}
-	
+
 	@FXML
 	//THIS IS ATTACHED TO THE SELECT BUTTON
 	private void choiceBox(ActionEvent event) throws IOException {

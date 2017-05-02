@@ -25,13 +25,14 @@ import javafx.scene.control.Button;
 
 
 	public class Ozlympic {
+	//TODO after package sep, change these from static , 
 	
 	static ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
 	static ArrayList<Official> offs = new ArrayList<Official>();
 	static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
 		
 	protected static boolean eventSet = false;
-	public static int userPic= 0;
+
 	static Event upcoming = new Event();//This is the primary event object for each Game
 	
 	public static void importData() {
@@ -121,80 +122,98 @@ import javafx.scene.control.Button;
 //			
 //		}
 //	
-	static void selectGame(int option, ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
 	
-//	static void selectGame() {
-		
-//		USE THIS CODE TO WRITE A METHOD THAT RETURNS THE CORRECT TYPE OF ATHLETE
-//		THEN USE THE REST TO RUN THE MATCH, AFTER USER HAS SELECTED THE CORRECT TYPES
-		
-		
+	static Event selectGame(int option) {
 		Event currentEvent = new Event();		
+		if(option == 1) {				
+			currentEvent = new RunningEvent();
+			eventSet = true;		
+		} else if (option ==2) {
+			currentEvent = new CyclingEvent();
+			eventSet = true;	
+		} else if (option ==3) {
+			currentEvent = new SwimEvent();
+			eventSet = true;	
+		}
+		return currentEvent;
+	}
 	
-		System.out.println("Select event to hold:\n1) Swimming Event\n2) Sprinting Event\n3) Cycling Event");
 
-		loadArray = comp;
-		
+	
+//	static void selectGame(int option, ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
+//	
+//
+//		
+////		USE THIS CODE TO WRITE A METHOD THAT RETURNS THE CORRECT TYPE OF ATHLETE
+////		THEN USE THE REST TO RUN THE MATCH, AFTER USER HAS SELECTED THE CORRECT TYPES
+//		
+//		
+//		Event currentEvent = new Event();		
+//	
+//		System.out.println("Select event to hold:\n1) Swimming Event\n2) Sprinting Event\n3) Cycling Event");
+//
+//		loadArray = comp;
+//		
 //		System.out.println(loadArray.size()); //Tests the loadArray is correct and that no athletes have been removed 
-		
-			if(option == 1) {				
-				currentEvent = new SwimEvent();
-				eventSet = true;				
-				ArrayList<Athlete> returningArray = new ArrayList<Athlete>(); 			
-				returningArray = currentEvent.loadEvent(loadArray);//Calls the "loadEvent" method which determines if athletes are eligible to compete 
-				loadArray = returningArray;				
-
-				System.out.println("The competeing athletes are: \n" );
-				for(int i = 0; i < loadArray.size(); i++) {
-					Athlete currentAthlete = loadArray.get(i);
-					System.out.println(currentAthlete.getName());
-				}
-				
-			} else if(option ==2) {				
-				currentEvent = new RunningEvent();
-				eventSet = true;				
-				ArrayList<Athlete> returningArray = new ArrayList<Athlete>(); 			
-				returningArray = currentEvent.loadEvent(loadArray); 
-				loadArray = returningArray;				
-
-				System.out.println("The competeing athletes are " );
-				for(int i = 0; i < loadArray.size(); i++) {
-					Athlete currentAthlete = loadArray.get(i);
-					System.out.println(currentAthlete.getName());
-				}				
-//				System.out.println(returningArray); //This tests the correct array was returned 
-	
-			} else if (option ==3) {
-				currentEvent = new CyclingEvent();
-				eventSet = true;				
-				ArrayList<Athlete> returningArray = new ArrayList<Athlete>(); 			
-				returningArray = currentEvent.loadEvent(loadArray); 
-				loadArray = returningArray;				
-
-				System.out.println("The competeing athletes are " );
-				for(int i = 0; i < loadArray.size(); i++) {
-					Athlete currentAthlete = loadArray.get(i);
-					
-					
-					
-					
-					
-					System.out.println(currentAthlete.getName());
-				}
-			} else {
-				System.out.println("Please select an event to hold");
-			}
-			
-			currentEvent = upcoming;
-
-			Official test = pickOfficial(offs);
-			System.out.println("Overseeing Official is: " + test.getName());
-			upcoming.setOfficial(test);
-			//Assigns an Official to a game
-
-//			menu(comp, upcoming, loadArray, offs, done); 
-			return;		
-	} 
+//		
+//			if(option == 1) {				
+//				currentEvent = new SwimEvent();
+//				eventSet = true;				
+//				ArrayList<Athlete> returningArray = new ArrayList<Athlete>(); 			
+//				returningArray = currentEvent.loadEvent(loadArray);//Calls the "loadEvent" method which determines if athletes are eligible to compete 
+//				loadArray = returningArray;				
+//
+//				System.out.println("The competeing athletes are: \n" );
+//				for(int i = 0; i < loadArray.size(); i++) {
+//					Athlete currentAthlete = loadArray.get(i);
+//					System.out.println(currentAthlete.getName());
+//				}
+//				
+//			} else if(option ==2) {				
+//				currentEvent = new RunningEvent();
+//				eventSet = true;				
+//				ArrayList<Athlete> returningArray = new ArrayList<Athlete>(); 			
+//				returningArray = currentEvent.loadEvent(loadArray); 
+//				loadArray = returningArray;				
+//
+//				System.out.println("The competeing athletes are " );
+//				for(int i = 0; i < loadArray.size(); i++) {
+//					Athlete currentAthlete = loadArray.get(i);
+//					System.out.println(currentAthlete.getName());
+//				}				
+////				System.out.println(returningArray); //This tests the correct array was returned 
+//	
+//			} else if (option ==3) {
+//				currentEvent = new CyclingEvent();
+//				eventSet = true;				
+//				ArrayList<Athlete> returningArray = new ArrayList<Athlete>(); 			
+//				returningArray = currentEvent.loadEvent(loadArray); 
+//				loadArray = returningArray;				
+//
+//				System.out.println("The competeing athletes are " );
+//				for(int i = 0; i < loadArray.size(); i++) {
+//					Athlete currentAthlete = loadArray.get(i);
+//					
+//					
+//					
+//					
+//					
+//					System.out.println(currentAthlete.getName());
+//				}
+//			} else {
+//				System.out.println("Please select an event to hold");
+//			}
+//			
+//			currentEvent = upcoming;
+//
+//			Official test = pickOfficial(offs);
+//			System.out.println("Overseeing Official is: " + test.getName());
+//			upcoming.setOfficial(test);
+//			//Assigns an Official to a game
+//
+////			menu(comp, upcoming, loadArray, offs, done); 
+//			return;		
+//	} 
 	
 //	static void predictGame(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, Event upcoming, ArrayList<Official> offs, ArrayList<String> done) {
 //		
@@ -226,11 +245,11 @@ import javafx.scene.control.Button;
 			finEvent = upcoming;		
 			int winner=  finEvent.getWinnerId();
 			//Makes an new event reference to cross check the users prediction with
-			if (userPic != winner) {
-				System.out.println("");
-			} else {
-				System.out.println("Congrats! You picked the winner!");
-			}			
+//			if (userPic != winner) {
+//				System.out.println("");
+//			} else {
+//				System.out.println("Congrats! You picked the winner!");
+//			}			
 		}				
 		
 		String result = new String ("========\n" + "The winner of " + (upcoming.getCode()) + " was " + (upcoming.getWinner()) + "\n" +
@@ -249,8 +268,10 @@ import javafx.scene.control.Button;
 		for (int i = 0; i < done.size(); i++) {
 			String test = done.get(i);
 		System.out.println(test);
-		}		
-//		menu(comp, upcoming, loadArray, offs, done);		
+		} 	
+		
+		
+	
 	}
 
 //	static void displayAthletes(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Official> offs,  ArrayList<String> done) {
@@ -273,4 +294,5 @@ import javafx.scene.control.Button;
 	    Official randomOff = offs.get(rand.nextInt(offs.size()));
 	    return randomOff;
 	}
+
 }

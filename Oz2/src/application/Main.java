@@ -13,11 +13,15 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	
+				public static Ozlympic oz = new Ozlympic();
+
+				
 	public static Stage primaryStage;
 	private Scene scene1;
 	private Scene scene2;
 
 	public void primaryStage() throws IOException { //Sets up the primary stage
+		
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Menu.fxml"));
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -38,6 +42,7 @@ public class Main extends Application {
 	
 	
 	public static void main(String[] args) {
+		System.out.println("App Working?");
 		launch(args);	
 	}
 	
