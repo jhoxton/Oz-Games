@@ -123,6 +123,7 @@ import javafx.scene.control.Button;
 //	
 	static void selectGame(int option, ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
 	
+//	static void selectGame() {
 		
 //		USE THIS CODE TO WRITE A METHOD THAT RETURNS THE CORRECT TYPE OF ATHLETE
 //		THEN USE THE REST TO RUN THE MATCH, AFTER USER HAS SELECTED THE CORRECT TYPES

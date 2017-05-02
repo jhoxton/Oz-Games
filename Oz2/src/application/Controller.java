@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
 
 
 public class Controller {
-	private Ozlympic oz = new Ozlympic();
+	public static Ozlympic oz = new Ozlympic();
 	
 	@FXML
 	private Button test;
