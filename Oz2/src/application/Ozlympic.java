@@ -27,13 +27,13 @@ import javafx.scene.control.Button;
 	public class Ozlympic {
 	//TODO after package sep, change these from static , 
 	
-	static ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
-	static ArrayList<Official> offs = new ArrayList<Official>();
-	static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
+	public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
+	public static ArrayList<Official> offs = new ArrayList<Official>();
+	public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
 		
-	protected static boolean eventSet = false;
+	public static boolean eventSet = false;
 
-	static Event upcoming = new Event();//This is the primary event object for each Game
+	public static Event upcoming = new Event();//This is the primary event object for each Game
 	
 	public static void importData() {
 	try {	
@@ -123,7 +123,7 @@ import javafx.scene.control.Button;
 //		}
 //	
 	
-	static Event selectGame(int option) {
+	public static Event selectGame(int option) {
 		Event currentEvent = new Event();		
 		if(option == 1) {				
 			currentEvent = new RunningEvent();

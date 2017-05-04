@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +32,7 @@ public class GameController {
 	private ChoiceBox add;
 	
 	@FXML
-	private TextArea info;
+	private Label info = new Label(application.Ozlympic.upcoming.getName());
 	
 	
 	@FXML
@@ -47,13 +48,7 @@ public class GameController {
 	private void addToEvent() {		
 		
 	}
-	@FXML
-	private void print() {
-		info.setText("");
-						
-			info.appendText("Name: " + Ozlympic.upcoming.getName());
-		
-		}
+
 	
 	
 	
