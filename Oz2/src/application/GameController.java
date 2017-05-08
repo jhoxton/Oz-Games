@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,12 +29,23 @@ public class GameController {
 	
 	@FXML 
 	private Button display;
+	
+	@FXML
+	private Button add;
 
 	@FXML
-	private ChoiceBox add;
+	private ChoiceBox compAth;
+	
+	@FXML
+	private ChoiceBox inGame;
 	
 	@FXML
 	private Label info = new Label(application.Ozlympic.upcoming.getName());
+		
+	@FXML
+	private ObservableList<String> athleteDisplay =FXCollections.observableArrayList();
+	@FXML
+	private ObservableList<String> athleteAdded =FXCollections.observableArrayList();
 	
 	
 	@FXML
@@ -44,8 +57,46 @@ public class GameController {
 		thisStage.setScene(menuPageScene);
 		thisStage.show();		
 	}
+	
+	@FXML
+	private void initialize(){
+		convertList();
+		compAth.setItems(athleteDisplay);
+	}
+	
+	@FXML
+	private void convertList(){
+		for(int i = 0; i < Ozlympic.competeingArray.size(); i++) {			
+			Athlete currentAthlete = Ozlympic.competeingArray.get(i);					
+			String newShit = currentAthlete.getName();
+			athleteDisplay.add(newShit);				
+		}
+		
+	}
+	
+	@FXML
+	private void populate() {
+		inGame.setItems(athleteAdded);
+
+	}
+	
 	@FXML
 	private void addToEvent() {		
+		if (compAth.getValue()!= null) {
+			String passAthlete = compAth.getValue().toString();
+			athleteAdded.add(passAthlete);
+			
+			for(int i = 0; i < athleteDisplay.size(); i++) {	
+				String fromAthlete = athleteDisplay.get(i);				
+				if (passAthlete.equals(fromAthlete)) {
+					athleteDisplay.remove(fromAthlete);
+				}
+			}
+			
+			populate();
+		
+			
+		}
 		
 	}
 

@@ -6,6 +6,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
+
 import java.util.*;
 //import org.junit.*;
 //import static org.junit.Assert.*;
@@ -27,9 +29,16 @@ import javafx.scene.control.Button;
 	public class Ozlympic {
 	//TODO after package sep, change these from static , 
 	
+	
+	
+	
+	
 	public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
 	public static ArrayList<Official> offs = new ArrayList<Official>();
 	public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
+	public static ArrayList<Athlete> competeingArray = new ArrayList<Athlete>();
+	
+	
 		
 	public static boolean eventSet = false;
 
@@ -37,6 +46,7 @@ import javafx.scene.control.Button;
 	
 	public static void importData() {
 	try {	
+		
 	
 //		ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
 //		ArrayList<Official> offs = new ArrayList<Official>();// Arraylist of Officials. And, yes I know it's spelled wrong
@@ -124,17 +134,32 @@ import javafx.scene.control.Button;
 //	
 	
 	public static Event selectGame(int option) {
-		Event currentEvent = new Event();		
-		if(option == 1) {				
-			currentEvent = new RunningEvent();
-			eventSet = true;		
-		} else if (option ==2) {
-			currentEvent = new CyclingEvent();
-			eventSet = true;	
-		} else if (option ==3) {
-			currentEvent = new SwimEvent();
-			eventSet = true;	
+		Event currentEvent = new Event();
+		switch(option) {
+			case 1: currentEvent = new RunningEvent();
+				break;					
+			case 2:currentEvent = new CyclingEvent(); 
+				break;
+			case 3:	currentEvent = new SwimEvent();	
+				break;
+			default:
+				System.out.println("Invalid option!");
 		}
+		
+//		THE PROBLEM IS SOMETHING TO DO WITH THE EVENT CLASSES FOR CYCLIST AND SWIMMER
+		
+		
+//		Event currentEvent = new Event();		
+//		if(option == 1) {				
+//			currentEvent = new RunningEvent();
+//			eventSet = true;		
+//		} else if (option ==2) {
+//			currentEvent = new CyclingEvent();
+//			eventSet = true;	
+//		} else if (option ==3) {
+//			currentEvent = new SwimEvent();
+//			eventSet = true;	
+//		}
 		return currentEvent;
 	}
 	
