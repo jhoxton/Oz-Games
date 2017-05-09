@@ -26,6 +26,7 @@ public class GameAlertBoxControl {
 
 	@FXML
 	private void sprintEvent(ActionEvent event) throws IOException {
+		Ozlympic.competeingArray.clear();
 		
 		Event currentEvent = Ozlympic.selectGame(1);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
@@ -38,7 +39,7 @@ public class GameAlertBoxControl {
 //		System.out.println("Type: " + currentAthlete.getType() + "Name: " + currentAthlete.getName());			
 //	} TEST LOOP DELETE THIS
 		
-		Ozlympic.upcoming = currentEvent;
+		Ozlympic.upcoming = currentEvent; //Sets the next event as "upcoming" in Ozlympic
 		
 		//Runs "loadEvent"(which selects eligible athletes for the event) and copies them to
 		//"competeingArray", which will be used to run the Game
@@ -57,18 +58,13 @@ public class GameAlertBoxControl {
 	@FXML
 	private void cycleEvent(ActionEvent event) throws IOException{
 		
-		
+		Ozlympic.competeingArray.clear();
 		Event currentEvent = Ozlympic.selectGame(2);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
 		loadArray = Ozlympic.comp;//Copies the all athletes to a new array		
 		
 		Ozlympic.competeingArray = currentEvent.loadEvent(loadArray);
-		
-//		for(int i = 0; i < Ozlympic.competeingArray.size(); i++) {			
-//			Athlete currentAthlete = Ozlympic.competeingArray.get(i);			
-//			System.out.println("Type: " + currentAthlete.getType() + "Name: " + currentAthlete.getName());			
-//		} TEST LOOP DELETE THIS
-		
+
 		Ozlympic.upcoming = currentEvent;
 	
 		
@@ -81,16 +77,13 @@ public class GameAlertBoxControl {
 	
 	@FXML
 	private void swimEvent(ActionEvent event) throws IOException{
+		Ozlympic.competeingArray.clear();
 		Event currentEvent = Ozlympic.selectGame(3);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
 		loadArray = Ozlympic.comp;//Copies the all athletes to a new array		
 		
 		Ozlympic.competeingArray = currentEvent.loadEvent(loadArray);
-		
-//		for(int i = 0; i < Ozlympic.competeingArray.size(); i++) {			
-//			Athlete currentAthlete = Ozlympic.competeingArray.get(i);			
-//			System.out.println("Type: " + currentAthlete.getType() + "Name: " + currentAthlete.getName());			
-//		} TEST LOOP DELETE THIS
+
 		Ozlympic.upcoming = currentEvent;
 	
 		

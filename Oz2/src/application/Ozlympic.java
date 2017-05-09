@@ -29,14 +29,11 @@ import javafx.scene.control.Button;
 	public class Ozlympic {
 	//TODO after package sep, change these from static , 
 	
-	
-	
-	
-	
-	public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); 
-	public static ArrayList<Official> offs = new ArrayList<Official>();
+	public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); //ArrayList containing ALL athletes
+	public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals
 	public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
-	public static ArrayList<Athlete> competeingArray = new ArrayList<Athlete>();
+	public static ArrayList<Athlete> competeingArray = new ArrayList<Athlete>(); //Temporary ArrayList to hold eligible athletes for an event. 
+	public static ArrayList<Athlete> eventAthletes = new ArrayList<Athlete>(); //Athletes selected by user for the event
 	
 	public static boolean eventSet = false;
 
@@ -59,12 +56,6 @@ import javafx.scene.control.Button;
 		r.closeFile();
 
 //		TODO: Add exception catches 
-
-//		ArrayList<Athlete> loadArray = new ArrayList<Athlete>(); // Arraylsit to store athletes for the next upcoming event 		
-		
-	
-
-//		menu(comp, upcoming, loadArray, offs, done);//Launches the menu		
 		
 	}catch (Exception e) {
 		System.out.println("Cannot find read file");
@@ -90,9 +81,6 @@ import javafx.scene.control.Button;
 			default:
 				System.out.println("Invalid option!");
 		}
-		
-//		THE PROBLEM IS SOMETHING TO DO WITH THE EVENT CLASSES FOR CYCLIST AND SWIMMER
-
 		return currentEvent;
 	}
 	
