@@ -32,12 +32,18 @@ public class GameController {
 	
 	@FXML
 	private Button add;
+	
+	@FXML
+	private Button remove;
 
 	@FXML
 	private ChoiceBox compAth;
 	
 	@FXML
 	private ChoiceBox inGame;
+	
+	@FXML
+	private Button confrim;
 	
 	@FXML
 	private Label info = new Label(application.Ozlympic.upcoming.getName());
@@ -71,6 +77,10 @@ public class GameController {
 			String newShit = currentAthlete.getName();
 			athleteDisplay.add(newShit);				
 		}
+	}
+	
+	@FXML
+	private void confirmEvent(){
 		
 	}
 	
@@ -90,15 +100,19 @@ public class GameController {
 				if (passAthlete.equals(fromAthlete)) {
 					athleteDisplay.remove(fromAthlete);
 				}
-			}
-			
-			populate();
-		
-			
+			}			
+			populate();//Re populates the list of eligible Athletes 					
 		}
-		
 	}
-
+	@FXML
+	private void removeFromEvent() {		
+		if (inGame.getValue()!= null) {
+			String removeAthlete = inGame.getValue().toString();
+			athleteAdded.remove(removeAthlete);
+			athleteDisplay.add(removeAthlete);
+			populate();					
+		}
+	}
 	
 	
 	

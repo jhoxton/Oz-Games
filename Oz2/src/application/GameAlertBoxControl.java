@@ -23,15 +23,6 @@ public class GameAlertBoxControl {
 	@FXML
 	private Button swim;
 	
-//	@FXML//This leads to the Game choice scene
-//	private void selectGame(ActionEvent event) throws IOException {
-//		
-//		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
-//		Scene gamePageScene = new Scene(gamePage);
-//		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//		thisStage.setScene(gamePageScene);
-//		thisStage.show();		
-//	}
 
 	@FXML
 	private void sprintEvent(ActionEvent event) throws IOException {
