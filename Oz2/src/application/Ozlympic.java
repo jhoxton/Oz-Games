@@ -38,8 +38,6 @@ import javafx.scene.control.Button;
 	public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
 	public static ArrayList<Athlete> competeingArray = new ArrayList<Athlete>();
 	
-	
-		
 	public static boolean eventSet = false;
 
 	public static Event upcoming = new Event();//This is the primary event object for each Game
@@ -74,92 +72,27 @@ import javafx.scene.control.Button;
 	
 	}
 	
-//	public static void info(){
-//		System.out.println("Eh");
-//		for(int i = 0; i < comp.size(); i++) {			
-//			Athlete currentAthlete = comp.get(i);			
-//			System.out.println("=============");
-//			System.out.println("Name:" +currentAthlete.getName());
-//			System.out.println("Type: " + currentAthlete.getType());
-//			System.out.println("Age:" +currentAthlete.getAge());
-//			System.out.println("State:" +currentAthlete.getState());
-//			System.out.println("Current Score:" +currentAthlete.getScore());			
-//		}
-//	}
-//	public static void menu(ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
-//		
-//		System.out.println("\n==============");
-//		
-//		System.out.println("Ozlympic Games\n==============");
-//		
-////		if(eventSet == true) {
-////			System.out.println("The next event to be held is a " + upcoming.getName() + "\n");
-////		} else {
-////			System.out.println("No upcoming event\n");
-////		}
-//		
-//		System.out.println("1) Select a Game to Run\n2) Predict the Winner of Game\n3) Start the Game\n4) Display the results of all Games\n5) Display points of all athletes\n6) Exit\n");
-//		System.out.println("Enter an Option: ");
-//		
-//		try {
-//	int input;
-//		int option = 10;
-//			switch(option) {
-//				case 1: selectGame( option, comp, upcoming, loadArray, offs, done);
-//					break;					
-////				case 2: predictGame(comp, loadArray, upcoming, offs, done);
-////					break;
-//				case 3: startGame(comp, upcoming, loadArray, offs, done); 				
-//					break;
-//				case 4: displayGames(comp, loadArray, offs, done);
-//					break;
-////				case 5: displayAthletes(comp, loadArray, offs, done);
-////					break;
-//				case 6: 
-//					System.out.println("Arrays cleared. Games reset. Goodbye!");
-//					System.exit(0);
-//					break;
-//				default:
-//					System.out.println("Invalid option!");
-//					menu(comp, upcoming, loadArray, offs, done);
-//			}
-//		}catch (Exception e) {
-//			System.out.println("Invalid input\nPlease enter a number between 1-6");
-//			System.out.println();			
-//			}
-//		
-//		return;
-//			
-//		}
-//	
-	
 	public static Event selectGame(int option) {
 		Event currentEvent = new Event();
 		switch(option) {
 			case 1: currentEvent = new RunningEvent();
+				currentEvent.setName("Running Event");
+			eventSet = true;	
 				break;					
 			case 2:currentEvent = new CyclingEvent(); 
+				currentEvent.setName("Cycling Event");
+			eventSet = true;	
 				break;
 			case 3:	currentEvent = new SwimEvent();	
+				currentEvent.setName("Swimming Event");
+			eventSet = true;	
 				break;
 			default:
 				System.out.println("Invalid option!");
 		}
 		
 //		THE PROBLEM IS SOMETHING TO DO WITH THE EVENT CLASSES FOR CYCLIST AND SWIMMER
-		
-		
-//		Event currentEvent = new Event();		
-//		if(option == 1) {				
-//			currentEvent = new RunningEvent();
-//			eventSet = true;		
-//		} else if (option ==2) {
-//			currentEvent = new CyclingEvent();
-//			eventSet = true;	
-//		} else if (option ==3) {
-//			currentEvent = new SwimEvent();
-//			eventSet = true;	
-//		}
+
 		return currentEvent;
 	}
 	

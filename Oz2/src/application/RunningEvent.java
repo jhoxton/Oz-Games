@@ -11,7 +11,7 @@ public class RunningEvent extends Event {
 	}
 	
 	@Override
-	public ArrayList<Athlete> loadEvent(ArrayList<Athlete> athletes){ //NEW ATTEMPT
+	public ArrayList<Athlete> loadEvent(ArrayList<Athlete> athletes){ 
 		
 		ArrayList<Athlete> tempArray = new ArrayList<Athlete>(); 
 //		System.out.println(athletes.size());//Tests correct array was sent

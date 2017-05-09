@@ -77,7 +77,6 @@ public class GameController {
 	@FXML
 	private void populate() {
 		inGame.setItems(athleteAdded);
-
 	}
 	
 	@FXML

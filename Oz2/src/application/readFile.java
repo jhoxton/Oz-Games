@@ -52,7 +52,7 @@ public class readFile {
 				comp.add(SprintIn);				
 			}
 			else if (test.getType().equals("Super")) {
-				Sprinter SuperIn = new Sprinter(id, name,type, age, state, score);
+				SuperAthlete SuperIn = new SuperAthlete(id, name,type, age, state, score);
 //				System.out.println("Super");
 //				System.out.println("Test 5 added " + SuperIn.getName());
 				comp.add(SuperIn);				
