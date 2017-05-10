@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -38,6 +39,8 @@ public class Controller {
 	private  TextArea nextEvent;
 	@FXML
 	private Button pastGames;
+	@FXML
+	private Button start;
 	
 	@FXML
 	private void initialize() {
@@ -46,10 +49,16 @@ public class Controller {
 		
 		Ozlympic.importData();
 	}
+	
+	@FXML
+	private void runEvent() {
+		Ozlympic.upcoming.runEvent(Ozlympic.competeingArray, Ozlympic.upcoming, Ozlympic.offs);
+		
+	}
 	@FXML
 	private void displayEvent(){
 		if (Ozlympic.eventSet	== true) {
-			nextEvent.setText("The next event is: " +  Ozlympic.upcoming.getName() + "\n" +Ozlympic.upcoming.getCode());
+			nextEvent.setText("Next event is: " +  Ozlympic.upcoming.getName() + "\n" +Ozlympic.upcoming.getCode());
 		} else {
 			nextEvent.setText("No upcoming events");
 		}

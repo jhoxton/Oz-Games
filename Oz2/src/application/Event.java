@@ -17,20 +17,16 @@ public class Event {
 	
 	public ArrayList<Athlete> athletes= new ArrayList<Athlete>();
 	public ArrayList<Official> officalInEvent = new ArrayList<Official>();
-		
-	public ArrayList<Athlete> runEvent (ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray,ArrayList<Official> offs) {
-				
+	
+	public ArrayList<Athlete> runEvent (ArrayList<Athlete> eventAthletes, Event upcoming, ArrayList<Official> offs) {
+
 		officalInEvent = offs;		
 		this.setCode(code);	//Assigns a code to the event	
 		String superName = name;
 		Random randomizer = new Random();		
 		ArrayList<Athlete> athInComp = new ArrayList<Athlete>(); 
 		//The code below picks three athletes from the "loadArray" and assigns them a score
-		athInComp = loadArray;
-				
-		
-		//TODO Select only 8 Athletes here. Make a method pickAthletes() to do this.
-//		 This should choose between 4 and 8 athletes. If there are less than 4, throw the exception
+		athInComp = eventAthletes;
 		
 		Athlete ath1 = athInComp.get(randomizer.nextInt(athInComp.size()));		
 		int time1 =ath1.compete(superName);	
@@ -129,8 +125,122 @@ public class Event {
 			}
 		}
 		
-		return loadArray; 
+		return eventAthletes; 
 	}
+//		THIS IS THE BACKUP CODE IN CASE I FUCK UP THE RUN EVENT METHOD ABOVE
+//	public ArrayList<Athlete> runEvent (ArrayList<Athlete> comp, Event upcoming, ArrayList<Athlete> loadArray,ArrayList<Official> offs) {
+//
+//		officalInEvent = offs;		
+//		this.setCode(code);	//Assigns a code to the event	
+//		String superName = name;
+//		Random randomizer = new Random();		
+//		ArrayList<Athlete> athInComp = new ArrayList<Athlete>(); 
+//		//The code below picks three athletes from the "loadArray" and assigns them a score
+//		athInComp = loadArray;
+//				
+//		
+//		//TODO Select only 8 Athletes here. Make a method pickAthletes() to do this.
+////		 This should choose between 4 and 8 athletes. If there are less than 4, throw the exception
+//		
+//		Athlete ath1 = athInComp.get(randomizer.nextInt(athInComp.size()));		
+//		int time1 =ath1.compete(superName);	
+//		
+//		athInComp.remove(ath1);//Removes array list reference to prevent doubling up
+//							   // If athlete references start disappearing, this is where it happens
+//		
+//		Athlete ath2 = athInComp.get(randomizer.nextInt(athInComp.size()));
+//		int time2 =ath2.compete(superName);		
+//		
+//		athInComp.remove(ath2);
+//		
+//		Athlete ath3 = athInComp.get(randomizer.nextInt(athInComp.size()));		
+//		int time3 =ath3.compete(superName);
+//		
+//		athInComp.remove(ath3);
+//		
+//		System.out.println("=============");
+//		System.out.println(getName()+ " " +getCode());
+//		System.out.println("=============");
+//		
+//
+//		if ( time1 < time2 && time1 < time3 ) { //ATH1 WINS
+//			System.out.println("The winner is " + ath1.getName() + " at " + time1);
+//			ath1.setScore(5);			
+//			setWinner(ath1.getName());
+//			setWinnerId(ath1.getId());
+//			
+//			if (time2 < time3) {
+//				System.out.println("\nSecond place is " + ath2.getName() + " at " + time2);
+//				ath2.setScore(2);				
+//				setSecond(ath2.getName());				
+//				System.out.println("\nThird place is " + ath3.getName() + " at " + time3);
+//				ath3.setScore(1);
+//				setThird(ath3.getName());
+//				System.out.println("=============");
+//				
+//			} else if (time3 < time2) {
+//				System.out.println("\nSecond place is " + ath3.getName() + " at " + time3);
+//				ath3.setScore(2);
+//				setSecond(ath3.getName());
+//				System.out.println("\nThird place is " + ath3.getName() + " at " + time2);
+//				ath2.setScore(1);
+//				setThird(ath2.getName());
+//				System.out.println("=============");
+//				
+//			}						
+//		} else if (time2 < time1 && time2 < time3) {//ATH2 WINS		
+//			System.out.println("The winner is " + ath2.getName() + " at " + time2);
+//			ath2.setScore(5);					
+//			setWinner(ath2.getName());
+//			setWinnerId(ath2.getId());
+//			
+//			if (time1 < time3) {
+//				System.out.println("\nSecond place is " + ath1.getName() + " at " + time1);
+//				ath1.setScore(2);
+//				setSecond(ath1.getName());
+//				System.out.println("\nThird place is " + ath3.getName() + " at " + time3);
+//				ath3.setScore(1);
+//				setThird(ath3.getName());
+//				System.out.println("=============");
+//				
+//			} else if (time3 < time1) {
+//				System.out.println("\nSecond place is " + ath3.getName() + " at " + time3);
+//				ath3.setScore(2);
+//				setSecond(ath3.getName());
+//				System.out.println("\nThird place is " + ath2.getName() + " at " + time2);
+//				ath2.setScore(1);
+//				setThird(ath2.getName());
+//				System.out.println("=============");
+//				
+//			}
+//		} else if ( time3 < time2 && time3 < time1 ) {	//ATH3 WINS
+//			System.out.println("\nThe winner is " + ath3.getName() + " at " + time3);
+//			ath3.setScore(5);
+//			setWinner(ath3.getName());
+//			setWinnerId(ath3.getId());
+//			
+//			if (time2 < time1) {
+//				System.out.println("\nSecond place is " + ath2.getName() + " at " + time2);
+//				ath2.setScore(2);
+//				setSecond(ath2.getName());
+//				System.out.println("\nThird place is " + ath1.getName() + " at " + time1);
+//				ath1.setScore(1);
+//				setThird(ath1.getName());
+//				System.out.println("=============");
+//				
+//			} else if (time1 < time2) {
+//				System.out.println("\nSecond place is " + ath1.getName() + " at " + time1);
+//				ath1.setScore(2);
+//				setSecond(ath1.getName());
+//				System.out.println("\nThird place is " + ath2.getName() + " at " + time2);
+//				ath2.setScore(1);
+//				setThird(ath2.getName());
+//				System.out.println("=============");				
+//			}
+//		}
+//		
+//		return loadArray; 
+//	}
 
 	public ArrayList<Athlete> loadEvent(ArrayList<Athlete> athletes){
 		this.athletes = athletes;

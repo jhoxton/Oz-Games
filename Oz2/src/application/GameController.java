@@ -57,8 +57,8 @@ public class GameController {
 	@FXML
 	//TODO Be sure that is doesn't remove or clear any data about the Athletes or Event
 	private void menu(ActionEvent event) throws IOException {
-		
-		Ozlympic.competeingArray.clear();//Clears all arrays to avoid duplicates 
+//		
+//		Ozlympic.competeingArray.clear();//Clears all arrays to avoid duplicates 
 		athleteAdded.clear();
 		athleteDisplay.clear();
 
@@ -87,7 +87,8 @@ public class GameController {
 	}
 	
 	@FXML
-	private void confirmEvent(){ //This copies the Athletes selected by the user into a arraylist
+	private void confirmEvent(ActionEvent event) throws IOException {
+		//This copies the Athletes selected by the user into a arraylist
 								//in Ozlympic to run the event off
 								//Exceptions will be important here
 								//Also make sure it wont run unless there are at least 4 athletes
@@ -97,9 +98,9 @@ public class GameController {
 			for(int i =0;i < Ozlympic.comp.size(); i++) {
 				Athlete currentAthlete = Ozlympic.comp.get(i);	
 				String name = currentAthlete.getName();
-	//			System.out.println(name);
+	
 				if(athleteAdded.contains(name)) {
-	//			System.out.println("yes");
+
 					Ozlympic.eventAthletes.add(currentAthlete);
 					}
 				}
@@ -109,6 +110,11 @@ public class GameController {
 //				Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
 //				System.out.println(currentAthlete.getName());
 //			}
+		Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
+		Scene menuPageScene = new Scene(menuPage);
+		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		thisStage.setScene(menuPageScene);
+		thisStage.show();
 	}
 	
 	@FXML
