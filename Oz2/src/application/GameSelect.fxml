@@ -31,7 +31,7 @@
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ChoiceBox fx:id="compAth" layoutX="18.0" layoutY="128.0" onDragDetected="#addToEvent" prefWidth="150.0" />
+                        <ChoiceBox fx:id="compAth" layoutX="18.0" layoutY="208.0" onDragDetected="#addToEvent" prefWidth="150.0" />
                      </children></Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>

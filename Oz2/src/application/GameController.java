@@ -16,6 +16,7 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.event.Event;
@@ -88,10 +89,12 @@ public class GameController {
 	
 	@FXML
 	private void confirmEvent(ActionEvent event) throws IOException {
-		//This copies the Athletes selected by the user into a arraylist
-								//in Ozlympic to run the event off
-								//Exceptions will be important here
-								//Also make sure it wont run unless there are at least 4 athletes
+		/*
+		This copies the Athletes selected by the user into a arraylist
+		in Ozlympic to run the event off
+		Exceptions will be important here
+		Also make sure it wont run unless there are at least 4 athletes
+		 */
 		if(athleteAdded.size() < 4) {
 			System.out.println("Add more athletes dingus");
 		} else {
