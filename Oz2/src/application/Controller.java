@@ -51,9 +51,21 @@ public class Controller {
 	}
 	
 	@FXML
-	private void runEvent() {
-		Ozlympic.upcoming.runEvent(Ozlympic.competeingArray, Ozlympic.upcoming, Ozlympic.offs);
+	private void runEvent(ActionEvent event) throws IOException {
 		
+			
+		if(Ozlympic.eventSet == true) {
+//			System.out.println("Official for " + Ozlympic.upcoming.getCode() + " is " + Ozlympic.upcoming.getOfficial().getName());
+		Ozlympic.upcoming.runEvent(Ozlympic.competeingArray, Ozlympic.upcoming, Ozlympic.offs);
+		Parent alertPage =FXMLLoader.load(getClass().getResource("resultsWindow.fxml"));
+		Scene alertPageScene = new Scene(alertPage);
+		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		thisStage.setScene(alertPageScene);
+		thisStage.show();	
+		
+		} else {
+			nextEvent.setText("Please choose and event first");
+		}
 	}
 	@FXML
 	private void displayEvent(){

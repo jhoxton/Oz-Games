@@ -178,7 +178,7 @@ import javafx.scene.control.Button;
 //		}		
 //	}
 	
-	static void startGame(ArrayList<Athlete> comp, Event upcoming,ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
+	static void finishEvent() {
 		
 //		if(eventSet ==false ) {
 //			System.out.println("Please select an event to hold first");
