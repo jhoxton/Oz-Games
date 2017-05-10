@@ -19,11 +19,12 @@ public class Event {
 	private int thirdTime;
 	
 	public ArrayList<Athlete> athletes= new ArrayList<Athlete>();
-	public ArrayList<Official> officalInEvent = new ArrayList<Official>();
+//	public ArrayList<Official> officalInEvent = new ArrayList<Official>();
 	
 	public ArrayList<Athlete> runEvent (ArrayList<Athlete> eventAthletes, Event upcoming, ArrayList<Official> offs) {
 
-		officalInEvent = offs;		
+//		officalInEvent = offs;
+		
 		this.setCode(code);	//Assigns a code to the event	
 		String superName = name;
 		Random randomizer = new Random();		
@@ -45,11 +46,6 @@ public class Event {
 		int time3 =ath3.compete(superName);
 		
 		athInComp.remove(ath3);
-		
-		System.out.println("=============");
-		System.out.println(getName()+ " " +getCode());
-		System.out.println("=============");
-		
 
 		if ( time1 < time2 && time1 < time3 ) { //ATH1 WINS
 			System.out.println("The winner is " + ath1.getName() + " at " + time1);
@@ -147,7 +143,7 @@ public class Event {
 	//TODO Delete this once the above works
 	public ArrayList<Athlete> OLDrunEventDELETE_THIS (ArrayList<Athlete> eventAthletes, Event upcoming, ArrayList<Official> offs) {
 
-		officalInEvent = offs;		
+//		officalInEvent = offs;		
 		this.setCode(code);	//Assigns a code to the event	
 		String superName = name;
 		Random randomizer = new Random();		

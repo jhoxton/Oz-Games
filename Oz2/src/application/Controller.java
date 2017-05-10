@@ -102,6 +102,7 @@ public class Controller {
 	@FXML
 	private void testing(){
 		System.out.println("TEST BUTTON PLEASE IGNORE");
+		
 	}
 	
 	@FXML

@@ -2,6 +2,7 @@ package application;
 	
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -13,7 +14,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	
-				public static Ozlympic oz = new Ozlympic();
+//				public static Ozlympic oz = new Ozlympic();
 
 				
 	public static Stage primaryStage;
@@ -41,8 +42,9 @@ public class Main extends Application {
 	}
 	
 	
-	public static void main(String[] args) {
-//		System.out.println("App Working?");
+	public static void main(String[] args) {			
+	Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
+	
 		launch(args);	
 	}
 	
