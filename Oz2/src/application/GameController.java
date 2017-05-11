@@ -3,6 +3,8 @@ package application;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import exceptions.GameFullException;
+import exceptions.TooFewAthletesException;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -89,37 +91,43 @@ public class GameController {
 	
 	@FXML
 	private void confirmEvent(ActionEvent event) throws IOException {
-		/*
-		This copies the Athletes selected by the user into a arraylist
-		in Ozlympic to run the event off
-		Exceptions will be important here
-		Also make sure it wont run unless there are at least 4 athletes
-		 */
-		if(athleteAdded.size() < 4) {
-			System.out.println("Add more athletes dingus");
-		} else {
-			for(int i =0;i < Ozlympic.comp.size(); i++) {
-				Athlete currentAthlete = Ozlympic.comp.get(i);	
-				String name = currentAthlete.getName();
-	
-				if(athleteAdded.contains(name)) {
-
-					Ozlympic.eventAthletes.add(currentAthlete);
-					}
+		try {
+			
+			/*
+				This copies the Athletes selected by the user into a arraylist
+				in Ozlympic to run the event off
+				Exceptions will be important here
+				Also make sure it wont run unless there are at least 4 athletes
+				 */
+				if(athleteAdded.size() < 4) {
+					throw new TooFewAthletesException();
+				
+					
+				} else {
+					for(int i =0;i < Ozlympic.comp.size(); i++) {
+						Athlete currentAthlete = Ozlympic.comp.get(i);	
+						String name = currentAthlete.getName();
+			
+						if(athleteAdded.contains(name)) {
+		
+							Ozlympic.eventAthletes.add(currentAthlete);
+							}
+						}
 				}
+					//TEST LOOP
+		//			for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
+		//				Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
+		//				System.out.println(currentAthlete.getName());
+		//			}
+				Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
+				Scene menuPageScene = new Scene(menuPage);
+				Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				thisStage.setScene(menuPageScene);
+				thisStage.show();
+	} catch (Exception TooFewAthletesException) {
+		System.out.println("Exception worked");
 		}
-			//TEST LOOP
-//			for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
-//				Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
-//				System.out.println(currentAthlete.getName());
-//			}
-		Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
-		Scene menuPageScene = new Scene(menuPage);
-		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		thisStage.setScene(menuPageScene);
-		thisStage.show();
 	}
-	
 	@FXML
 	private void populate() {
 		inGame.setItems(athleteAdded);
@@ -127,18 +135,25 @@ public class GameController {
 	
 	@FXML
 	private void addToEvent() {		
-		if (compAth.getValue()!= null) {
-			String passAthlete = compAth.getValue().toString();
-			athleteAdded.add(passAthlete);
-			
-			for(int i = 0; i < athleteDisplay.size(); i++) {	
-				String fromAthlete = athleteDisplay.get(i);				
-				if (passAthlete.equals(fromAthlete)) {
-					athleteDisplay.remove(fromAthlete);
-				}
-			}			
-			
+		try {
+			if(athleteAdded.size() > 8) {
+				throw new  GameFullException(); } 
+			else {
+				if (compAth.getValue()!= null) {
+				String passAthlete = compAth.getValue().toString();
+				athleteAdded.add(passAthlete);
+				
+				for(int i = 0; i < athleteDisplay.size(); i++) {	
+					String fromAthlete = athleteDisplay.get(i);				
+					if (passAthlete.equals(fromAthlete)) {
+						athleteDisplay.remove(fromAthlete);
+					}
+				}			
+			}
 			populate();//Re populates the list of eligible Athletes 					
+		}
+	} catch(Exception GameFullException) {
+		
 		}
 	}
 	@FXML
