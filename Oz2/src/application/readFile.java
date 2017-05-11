@@ -33,28 +33,20 @@ public class readFile {
 
 			if (test.getType().equals("Cyclist")) {				
 				Cyclist cycleIn = new Cyclist(id, name,type, age, state, score);
-//				System.out.println("Cyclist");
-//				System.out.println("Test 2 added " + cycleIn.getName());
 				comp.add(cycleIn);				
 			}
 			
 			else if (test.getType().equals("Swimmer")) {
 				Swimmer SwimIn = new Swimmer(id, name,type, age, state, score);
-//				System.out.println("Swimmer");
-//				System.out.println("Test 3 added " + SwimIn.getName());
 				comp.add(SwimIn);				
 			}
 			
 			else if (test.getType().equals("Sprinter")) {				
 				Sprinter SprintIn = new Sprinter(id, name,type, age, state, score);
-//				System.out.println("Sprinter");
-//				System.out.println("Test 4 added " + SprintIn.getName());
 				comp.add(SprintIn);				
 			}
 			else if (test.getType().equals("Super")) {
 				SuperAthlete SuperIn = new SuperAthlete(id, name,type, age, state, score);
-//				System.out.println("Super");
-//				System.out.println("Test 5 added " + SuperIn.getName());
 				comp.add(SuperIn);				
 			}	
 		}
@@ -76,8 +68,6 @@ public class readFile {
 		
 		if (test.getType().equals("Official")) {
 			Official OffIn = new Official(id, name,type, age, state, score);
-//			System.out.println("Official");
-//			System.out.println("Off added " + OffIn.getName());
 			offs.add(OffIn);				
 		}
 		

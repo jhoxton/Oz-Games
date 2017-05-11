@@ -44,7 +44,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {			
 	Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
-	
+	Ozlympic.importData();
 		launch(args);	
 	}
 	

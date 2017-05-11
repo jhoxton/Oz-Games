@@ -65,8 +65,6 @@ import java.util.Date;
 		r.openFile();
 		r.readOffsFile(offs);
 		r.closeFile();
-
-//		TODO: Add exception catches 
 		
 	}catch (Exception e) {
 		System.out.println("Cannot find read file");
@@ -86,15 +84,19 @@ import java.util.Date;
 		}
 	}
 	
+	//TODO Rewrite this as some sort of serialization
+	
 	public static void updateFile() { //Appends to the results file with the last match 
 		try {	
-		    out = new PrintWriter(new BufferedWriter(new FileWriter("gameResults.txt", true)));		    
+		    out = new PrintWriter(new BufferedWriter(new FileWriter("gameResults.txt", true)));	
+		    
 		    out.println(Ozlympic.upcoming.getCode() + ", " + Ozlympic.upcoming.getOfficial().getId() + ", " + timeStamp);
 		    out.println(Ozlympic.upcoming.getWinner() + ", " + Ozlympic.upcoming.getFirstTime() + ", " + 5);
 		    out.println(Ozlympic.upcoming.getSecond() + ", " + Ozlympic.upcoming.getSecondTime() + ", " + 2);
 		    out.println(Ozlympic.upcoming.getThird() + ", " + Ozlympic.upcoming.getThirdTime() + ", " + 1);		    
 		    
 		}catch (IOException e) {
+			System.out.println("Error writting to file, please check existance of gameResults.txt");
 		    System.err.println(e);
 		}finally{
 		    if(out != null){

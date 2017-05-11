@@ -47,15 +47,13 @@ public class Controller {
 		displayEvent();
 //		oz.importData();
 		
-		Ozlympic.importData();
+		
 	}
 	
 	@FXML
-	private void runEvent(ActionEvent event) throws IOException {
-		
-			
+	private void runEvent(ActionEvent event) throws IOException {			
 		if(Ozlympic.eventSet == true) {
-//			System.out.println("Official for " + Ozlympic.upcoming.getCode() + " is " + Ozlympic.upcoming.getOfficial().getName());
+			
 		Ozlympic.upcoming.runEvent(Ozlympic.competeingArray, Ozlympic.upcoming, Ozlympic.offs);
 		Parent alertPage =FXMLLoader.load(getClass().getResource("resultsWindow.fxml"));
 		Scene alertPageScene = new Scene(alertPage);
@@ -72,6 +70,7 @@ public class Controller {
 		if (Ozlympic.eventSet	== true) {
 			nextEvent.setText("Next event is: " +  Ozlympic.upcoming.getName() + "\n" +Ozlympic.upcoming.getCode());
 		} else {
+			Ozlympic.upcoming = null; //Resets the upcoming event via "eventSet" boolean (Line 35 ResultsController.java)
 			nextEvent.setText("No upcoming events");
 		}
 //		Main.oz
