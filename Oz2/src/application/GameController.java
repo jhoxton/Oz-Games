@@ -164,8 +164,7 @@ public class GameController {
 	}
 	@FXML
 	private void removeFromEvent() {	
-		
-//		if (inGame.getValue()!= null) {
+
 		String selectedString = (String) leftDisplay.getSelectionModel().getSelectedItem();
 		
 		athleteAdded.remove(selectedString);

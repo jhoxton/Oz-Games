@@ -43,7 +43,7 @@ import java.util.Date;
 	public static ArrayList<Athlete> eligableAthletes = new ArrayList<Athlete>(); //Temporary ArrayList to hold eligible athletes for an event. 
 	public static ArrayList<Athlete> eventAthletes = new ArrayList<Athlete>(); //Athletes selected by user for the event
 	
-	public static boolean eventSet = false;
+	public static boolean eventSet = false; //To check if the Event has all the info it needs to run
 	
 	
 
@@ -139,8 +139,7 @@ import java.util.Date;
 				"Third place was " + (upcoming.getThird()) + "\n");
 		//Adds the events details (as a String) to the "done" array list
 		done.add(result);
-		
-//		eventSet = false;
+
 	
 		
 	}
@@ -151,25 +150,9 @@ import java.util.Date;
 			String test = done.get(i);
 		System.out.println(test);
 		} 	
-		
-		
-	
+
 	}
 
-//	static void displayAthletes(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Official> offs,  ArrayList<String> done) {
-//		
-//		for(int i = 0; i < comp.size(); i++) {			
-//			Athlete currentAthlete = comp.get(i);			
-//			System.out.println("=============");
-//			System.out.println("Name:" +currentAthlete.getName());
-//			System.out.println("Type: " + currentAthlete.getType());
-//			System.out.println("Age:" +currentAthlete.getAge());
-//			System.out.println("State:" +currentAthlete.getState());
-//			System.out.println("Current Score:" +currentAthlete.getScore());			
-//		}
-//		
-//		menu(comp, upcoming, loadArray, offs, done);
-//	}
 
 	public static Official pickOfficial(ArrayList<Official> offs) {
 	    Random rand = new Random(); 

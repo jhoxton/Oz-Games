@@ -79,7 +79,6 @@ public class Controller {
 			}
 		} else {
 			Ozlympic.upcoming = null; //Resets the upcoming event via "eventSet" boolean (Line 35 ResultsController.java)
-//			Ozlympic.eventAthletes = null;
 			nextEvent.setText("No upcoming events");
 		}
 
@@ -120,15 +119,7 @@ public class Controller {
 			info.appendText("\n");			
 		}
 	}
-//	private void displayOfficials() { //Prints out officials stats
-//		info.setText("");
-//		for(int i = 0; i < oz.offs.size(); i++) {	
-//			Official currentOff = oz.offs.get(i);
-//			info.appendText("\nName: " + currentOff.getName());
-//			info.appendText("\nID:" + currentOff.getId());
-//			info.appendText("\n");			
-//		}
-//	}
+
 	@FXML
 	private void displayAthletes() { //Prints out stats of all athletes
 		info.setText("");
@@ -143,19 +134,7 @@ public class Controller {
 			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");			
 		}
 	}
-//	private void displayAthletes() { //Prints out stats of all athletes
-//		info.setText("");
-//		for(int i = 0; i < oz.comp.size(); i++) {			
-//			info.appendText("====================\n");
-//			Athlete currentAthlete = oz.comp.get(i);						
-//			info.appendText("Name: " +currentAthlete.getName());
-//			info.appendText("\nID: " + currentAthlete.getId());
-//			info.appendText("\nSport: " + currentAthlete.getType());
-//			info.appendText("\nAge: " +currentAthlete.getAge());
-//			info.appendText("\nState: " +currentAthlete.getState());
-//			info.appendText("\nCurrent Score: " +currentAthlete.getScore() + "\n");			
-//		}
-//	}
+
 
 	@FXML
 	//THIS IS ATTACHED TO THE SELECT BUTTON
