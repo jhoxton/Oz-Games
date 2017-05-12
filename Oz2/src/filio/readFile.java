@@ -5,12 +5,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import app.Athlete;
-import app.Cyclist;
-import app.Official;
-import app.Sprinter;
-import app.SuperAthlete;
-import app.Swimmer;
+import ozlympic.Athlete;
+import ozlympic.Cyclist;
+import ozlympic.Official;
+import ozlympic.Sprinter;
+import ozlympic.SuperAthlete;
+import ozlympic.Swimmer;
 
 public class readFile {
 	Scanner txt;

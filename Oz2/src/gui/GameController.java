@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import app.Athlete;
-import app.Ozlympic;
 import exceptions.ExceptionAlert;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -23,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import ozlympic.Athlete;
+import ozlympic.Ozlympic;
 import javafx.event.Event;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;

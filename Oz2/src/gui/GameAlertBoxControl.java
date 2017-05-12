@@ -2,10 +2,6 @@ package gui;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import app.Athlete;
-import app.Event;
-import app.Official;
-import app.Ozlympic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +13,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import ozlympic.Athlete;
+import ozlympic.Event;
+import ozlympic.Official;
+import ozlympic.Ozlympic;
 
 public class GameAlertBoxControl {
 	
