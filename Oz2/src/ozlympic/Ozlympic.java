@@ -15,6 +15,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.fxml.FXMLLoader;
 //import org.junit.*;
 //import static org.junit.Assert.*;
 
@@ -33,27 +39,57 @@ import filio.readFile;
  *
  */
 
+	public class Ozlympic extends Application {
+		
+		public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); //ArrayList containing ALL athletes
+		public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals
+		
+		public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
+		
+		public static ArrayList<Athlete> eligableAthletes = new ArrayList<Athlete>(); //Temporary ArrayList to hold eligible athletes for an event. 
+		public static ArrayList<Athlete> eventAthletes = new ArrayList<Athlete>(); //Athletes selected by user for the event
+		
+		public static boolean eventSet = false; //To check if the Event has all the info it needs to run
+		
+		
 
-	public class Ozlympic {
-	//TODO after package sep, change these from static , 
-	
-	public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); //ArrayList containing ALL athletes
-	public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals
-	
-	public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
-	
-	public static ArrayList<Athlete> eligableAthletes = new ArrayList<Athlete>(); //Temporary ArrayList to hold eligible athletes for an event. 
-	public static ArrayList<Athlete> eventAthletes = new ArrayList<Athlete>(); //Athletes selected by user for the event
-	
-	public static boolean eventSet = false; //To check if the Event has all the info it needs to run
-	
-	
+		public static Event upcoming = new Event();//This is the primary event object for each Game
+		
+		static PrintWriter out = null;
+		
+		static String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+		
+		public static Stage primaryStage;
+		private Scene scene1;
+		private Scene scene2;
 
-	public static Event upcoming = new Event();//This is the primary event object for each Game
-	
-	static PrintWriter out = null;
-	
-	static String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+		public void primaryStage() throws IOException { //Sets up the primary stage
+			
+				BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/gui/Menu.fxml"));
+				Scene scene = new Scene(root,460,400);
+				scene.getStylesheets().add(getClass().getResource("/gui/application.css").toExternalForm());
+				primaryStage.setScene(scene);
+				primaryStage.show();	
+		}
+
+		@Override
+		public void start(Stage primaryStage) {
+			try {	
+				this.primaryStage = primaryStage;
+				this.primaryStage.setTitle("Ozlympic Games");			
+				primaryStage();		
+			}	catch(Exception e) {
+					e.printStackTrace();
+			}
+		}
+		
+		
+		public static void main(String[] args) {			
+		Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
+		Ozlympic.importData();
+			launch(args);	
+		}
+
 	
 	public static void importData() {
 	try {	
