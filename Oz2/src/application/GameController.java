@@ -65,10 +65,12 @@ public class GameController {
 	
 	
 	@FXML
-	//TODO Be sure that is doesn't remove or clear any data about the Athletes or Event
 	private void menu(ActionEvent event) throws IOException {
+		
 		athleteAdded.clear();
 		athleteDisplay.clear();
+		Ozlympic.eventSet = false;
+		Ozlympic.eligableAthletes.clear();
 
 		Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		Scene menuPageScene = new Scene(menuPage);
@@ -98,13 +100,13 @@ public class GameController {
 	}
 	
 	@FXML
-	private void confirmEvent(ActionEvent event) throws IOException, TooFewAthletesException {
+	private void confirmEvent(ActionEvent event) throws TooFewAthletesException {
 	
 //	This copies the Athletes selected by the user into a arraylist in Ozlympic to run the event off
 	
 	try {
 		if(athleteAdded.size() < 4) {
-				throw new TooFewAthletesException();					
+				throw new TooFewAthletesException("Please add at least 4 athletes to compete");					
 			} else {
 				
 				for(int i =0;i < Ozlympic.comp.size(); i++) {
@@ -113,7 +115,6 @@ public class GameController {
 					for(int j =0; j < athleteAdded.size(); j++) {
 						String obName = athleteAdded.get(j);
 							if(obName == name){
-
 							Ozlympic.eventAthletes.add(currentAthlete);							
 						}
 					}
@@ -132,9 +133,6 @@ public class GameController {
 			thisStage.show();
 			
 	} catch (Exception TooFewAthletesException) {
-
-		
-//				TODO create a pop up box saying too few athletes
 		
 		} 
 	}
@@ -148,8 +146,8 @@ public class GameController {
 	private void addToEvent() {		
 		
 		try {
-			if(athleteAdded.size() > 8) {
-				throw new  GameFullException(); } 
+			if(athleteAdded.size() > 7) {
+				throw new GameFullException("Game is full. Please add between 4 and 8 athletes"); } 
 			else {
 
 				
@@ -169,7 +167,7 @@ public class GameController {
 			populate();//Re populates the list of eligible Athletes 					
 //		}
 	} catch(Exception GameFullException) {
-			System.out.println("Too many athletes in event");
+			
 		}
 	}
 	@FXML
