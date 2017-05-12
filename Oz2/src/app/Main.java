@@ -1,10 +1,9 @@
-package application;
+package app;
 	
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import app.Ozlympic;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -24,9 +23,9 @@ public class Main extends Application {
 
 	public void primaryStage() throws IOException { //Sets up the primary stage
 		
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Menu.fxml"));
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/gui/Menu.fxml"));
 			Scene scene = new Scene(root,460,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/gui/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();	
 	}
