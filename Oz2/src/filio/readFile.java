@@ -1,9 +1,16 @@
 
-package application;
+package filio;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import app.Athlete;
+import app.Cyclist;
+import app.Official;
+import app.Sprinter;
+import app.SuperAthlete;
+import app.Swimmer;
 
 public class readFile {
 	Scanner txt;

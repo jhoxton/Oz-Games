@@ -2,6 +2,10 @@ package application;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import app.Athlete;
+import app.Event;
+import app.Official;
+import app.Ozlympic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

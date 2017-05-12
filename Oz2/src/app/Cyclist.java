@@ -1,18 +1,17 @@
-package application;
+package app;
 
 import java.util.Random;
 
-public class Sprinter extends Athlete  {
+public class Cyclist extends Athlete  {
 
-	public Sprinter(int id, String name, String type, int age, String state, int score) {
+	public Cyclist(int id, String name, String type, int age, String state, int score) {
 		super(id, name,type, age, state, score);
-		
-	}
+	}	
 	@Override
 	public int compete(String superName) {
 		
-		int maximum = 20;
-		int minimum = 10;
+		int maximum = 800;
+		int minimum = 500;
 		
 		Random rn = new Random();
 		int range = maximum - minimum + 1;
@@ -20,5 +19,5 @@ public class Sprinter extends Athlete  {
 		return time;
 		
 	}
-
+	
 }

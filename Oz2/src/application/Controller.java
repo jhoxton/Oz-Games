@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import app.Athlete;
+import app.Official;
+import app.Ozlympic;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

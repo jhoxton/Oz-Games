@@ -1,4 +1,4 @@
-package application;
+package app;
 import javafx.application.*;
 import javafx.event.*;
 import javafx.scene.*;
@@ -20,6 +20,8 @@ import java.util.*;
 
 
 import java.util.Date;
+
+import filio.readFile;
 
 /*
  * Advanced Programming Semester 1 2017 Assignment 1
@@ -131,7 +133,7 @@ import java.util.Date;
 
 	
 
-	static void finishEvent() {
+	public static void finishEvent() {
 
 	
 		String result = new String ("========\n" + "The winner of " + (upcoming.getCode()) + " was " + (upcoming.getWinner()) + "\n" +
