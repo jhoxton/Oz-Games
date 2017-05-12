@@ -112,17 +112,26 @@ public class GameController {
 				for(int i =0;i < Ozlympic.comp.size(); i++) {
 					Athlete currentAthlete = Ozlympic.comp.get(i);	
 					String name = currentAthlete.getName();
-		
-					if(athleteAdded.contains(name)) {		
-						Ozlympic.eventAthletes.add(currentAthlete);
+					
+					for(int j =0; j < athleteAdded.size(); j++) {
+						String obName = athleteAdded.get(j);
+						if(obName.equals(name)) {
+							System.out.println("FUCKING MATCH CUNT!");
+							Ozlympic.eventAthletes.add(currentAthlete);
+							
 						}
+					}
+//					if(athleteAdded.contains(name)) {
+//					if(athleteAdded == name) {
+//						Ozlympic.eventAthletes.add(currentAthlete);
+//						}
 					}
 			}
 				//TEST LOOP
-	//			for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
-	//				Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
-	//				System.out.println(currentAthlete.getName());
-	//			}
+				for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
+					Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
+					System.out.println(currentAthlete.getName());
+				}
 			Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
 			Scene menuPageScene = new Scene(menuPage);
 			Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -154,23 +163,15 @@ public class GameController {
 //				athleteAdded.add(passAthlete);
 //				int select = rightDisplay.getSelectionModel().getSelectedIndex();
 				
-				String test = (String) rightDisplay.getSelectionModel().getSelectedItem();
-				System.out.println(test);
+				String selectedString = (String) rightDisplay.getSelectionModel().getSelectedItem();
+				System.out.println(selectedString);
 				
-				
-//				if (select != 0) {
-//					System.out.println(athleteDisplay);
-//					athleteAdded.add(select);
-//					athleteDisplay.remove(select);
 					
-//					String passAthlete = compAth.getValue().toString();
-					System.out.println("Worked");
-					
-					athleteAdded.add(test);
+					athleteAdded.add(selectedString);
 				
 				for(int i = 0; i < athleteDisplay.size(); i++) {	
 					String fromAthlete = athleteDisplay.get(i);				
-					if (test.equals(fromAthlete)) {
+					if (selectedString.equals(fromAthlete)) {
 						athleteDisplay.remove(fromAthlete);
 					}
 				}			
@@ -182,7 +183,8 @@ public class GameController {
 		}
 	}
 	@FXML
-	private void removeFromEvent() {		
+	private void removeFromEvent() {	
+		
 		if (inGame.getValue()!= null) {
 			String removeAthlete = inGame.getValue().toString();
 			athleteAdded.remove(removeAthlete);

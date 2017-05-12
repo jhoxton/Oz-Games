@@ -100,6 +100,11 @@ public class Controller {
 	
 	@FXML
 	private void testing(){
+		if(Ozlympic.eventSet == true) {
+			info.appendText(Ozlympic.upcoming.getOfficial().getName());
+		} else {
+			info.appendText("Please select a game first");
+		}
 		System.out.println("TEST BUTTON PLEASE IGNORE");
 		
 	}
