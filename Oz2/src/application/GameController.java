@@ -109,29 +109,27 @@ public class GameController {
 		if(athleteAdded.size() < 4) {
 				throw new TooFewAthletesException();					
 			} else {
+				
 				for(int i =0;i < Ozlympic.comp.size(); i++) {
 					Athlete currentAthlete = Ozlympic.comp.get(i);	
 					String name = currentAthlete.getName();
 					
 					for(int j =0; j < athleteAdded.size(); j++) {
 						String obName = athleteAdded.get(j);
-						if(obName.equals(name)) {
-							System.out.println("FUCKING MATCH CUNT!");
-							Ozlympic.eventAthletes.add(currentAthlete);
-							
+//						if(obName.equals(name)) {
+							if(obName == name){
+//							System.out.println("FUCKING MATCH CUNT!");
+							Ozlympic.eventAthletes.add(currentAthlete);							
 						}
 					}
-//					if(athleteAdded.contains(name)) {
-//					if(athleteAdded == name) {
-//						Ozlympic.eventAthletes.add(currentAthlete);
-//						}
-					}
+				}
 			}
 				//TEST LOOP
 				for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
 					Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
-					System.out.println(currentAthlete.getName());
+					System.out.println("EventAthlete " + currentAthlete.getName());
 				}
+				
 			Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
 			Scene menuPageScene = new Scene(menuPage);
 			Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -139,11 +137,11 @@ public class GameController {
 			thisStage.show();
 			
 	} catch (Exception TooFewAthletesException) {
-		System.out.println("Exception worked");
+		System.out.println("Too few athletes");
 		
 //				TODO create a pop up box saying too few athletes
 		
-		}
+		} 
 	}
 	@FXML
 	private void populate() {
@@ -158,13 +156,10 @@ public class GameController {
 			if(athleteAdded.size() > 8) {
 				throw new  GameFullException(); } 
 			else {
-//				if (compAth.getValue()!= null) {
-//				String passAthlete = compAth.getValue().toString();
-//				athleteAdded.add(passAthlete);
-//				int select = rightDisplay.getSelectionModel().getSelectedIndex();
+
 				
 				String selectedString = (String) rightDisplay.getSelectionModel().getSelectedItem();
-				System.out.println(selectedString);
+//				System.out.println(selectedString);
 				
 					
 					athleteAdded.add(selectedString);
@@ -179,18 +174,22 @@ public class GameController {
 			populate();//Re populates the list of eligible Athletes 					
 //		}
 	} catch(Exception GameFullException) {
-		
+			System.out.println("Too many athletes in event");
 		}
 	}
 	@FXML
 	private void removeFromEvent() {	
 		
-		if (inGame.getValue()!= null) {
-			String removeAthlete = inGame.getValue().toString();
-			athleteAdded.remove(removeAthlete);
-			athleteDisplay.add(removeAthlete);
-							
-		}
+//		if (inGame.getValue()!= null) {
+		String selectedString = (String) leftDisplay.getSelectionModel().getSelectedItem();
+		
+		athleteAdded.remove(selectedString);
+		athleteDisplay.add(selectedString);	
+//			String removeAthlete = inGame.getValue().toString();
+		
+//			athleteAdded.remove(removeAthlete);
+//			athleteDisplay.add(removeAthlete);							
+//		}
 		populate();	
 	}
 	

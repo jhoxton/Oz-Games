@@ -54,7 +54,7 @@ public class Controller {
 	private void runEvent(ActionEvent event) throws IOException {			
 		if(Ozlympic.eventSet == true) {
 			
-		Ozlympic.upcoming.runEvent(Ozlympic.competeingArray, Ozlympic.upcoming, Ozlympic.offs);
+		Ozlympic.upcoming.runEvent(Ozlympic.eventAthletes, Ozlympic.upcoming, Ozlympic.offs);
 		Parent alertPage =FXMLLoader.load(getClass().getResource("resultsWindow.fxml"));
 		Scene alertPageScene = new Scene(alertPage);
 		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -68,28 +68,24 @@ public class Controller {
 	@FXML
 	private void displayEvent(){
 		if (Ozlympic.eventSet	== true) {
+			info.appendText("The official of the next event is ");
+			info.appendText(Ozlympic.upcoming.getOfficial().getName() + "\n");
+			info.appendText("Athletes in next event are: \n");
 			nextEvent.setText("Next event is: " +  Ozlympic.upcoming.getName() + "\n" +Ozlympic.upcoming.getCode());
+			for(int i = 0; i < Ozlympic.eventAthletes.size(); i++) {			
+				Athlete currentAthlete = Ozlympic.eventAthletes.get(i);						
+				info.appendText("\nName: " +currentAthlete.getName());
+						
+			}
 		} else {
 			Ozlympic.upcoming = null; //Resets the upcoming event via "eventSet" boolean (Line 35 ResultsController.java)
+//			Ozlympic.eventAthletes = null;
 			nextEvent.setText("No upcoming events");
 		}
-//		Main.oz
+
 	}
 
-//	private void displayEvent(){
-//		if (Main.oz.eventSet	== true) {
-//			nextEvent.setText("The next event is: " +  Main.oz.upcoming.getName());
-//		} else {
-//			nextEvent.setText("No upcoming events");
-//		}
-//	}
-//	@FXML
-//	private void printGames() {
-//		for (int i = 0; i < oz.done.size(); i++) {
-//			String test = oz.done.get(i);
-//		info.appendText(test);
-//		}		
-//	}
+//
 	@FXML
 	private void printGames() {
 		for (int i = 0; i < Ozlympic.done.size(); i++) {
