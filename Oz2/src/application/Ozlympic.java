@@ -131,33 +131,16 @@ import java.util.Date;
 	
 
 	static void finishEvent() {
+
+	
+		String result = new String ("========\n" + "The winner of " + (upcoming.getCode()) + " was " + (upcoming.getWinner()) + "\n" +
+				"Second place was " + (upcoming.getSecond()) + "\n" +
+				"Third place was " + (upcoming.getThird()) + "\n");
+		//Adds the events details (as a String) to the "done" array list
+		done.add(result);
 		
-//		if(eventSet ==false ) {
-//			System.out.println("Please select an event to hold first");
-////			menu(comp, upcoming, loadArray, offs, done);
-//		} else {							
-//			System.out.println("Official for " + upcoming.getCode() + " is " + upcoming.getOfficial().getName());
-//			upcoming.runEvent(comp, upcoming, loadArray, offs);	//The event launches here
-//			
-//			Event finEvent = new Event();	
-//			finEvent = upcoming;		
-//			int winner=  finEvent.getWinnerId();
-//			//Makes an new event reference to cross check the users prediction with
-////			if (userPic != winner) {
-////				System.out.println("");
-////			} else {
-////				System.out.println("Congrats! You picked the winner!");
-////			}			
-//		}				
-//		
-//		String result = new String ("========\n" + "The winner of " + (upcoming.getCode()) + " was " + (upcoming.getWinner()) + "\n" +
-//				"Second place was " + (upcoming.getSecond()) + "\n" +
-//				"Third place was " + (upcoming.getThird()) + "\n" + "========\n");
-//		//Adds the events details (as a String) to the "done" array list
-//		done.add(result);
-//		
 //		eventSet = false;
-//		menu(comp, upcoming, loadArray, offs, done);		
+	
 		
 	}
 

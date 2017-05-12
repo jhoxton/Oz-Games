@@ -34,6 +34,7 @@ public class ResultsControl {
 //		Ozlympic.upcoming = null;
 		Ozlympic.eventSet = false; //Set as false so when the main menu runs again, the event object is set as null (line 73 Controller.java)
 //		reLaunchMenu(null);
+		Ozlympic.finishEvent();
 		Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		Scene menuPageScene = new Scene(menuPage);
 		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
