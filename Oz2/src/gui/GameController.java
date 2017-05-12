@@ -22,6 +22,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import ozlympic.Athlete;
+import ozlympic.Official;
 import ozlympic.Ozlympic;
 import javafx.event.Event;
 import javafx.scene.control.TextField;
@@ -30,33 +31,35 @@ import javafx.scene.layout.BorderPane;
 public class GameController {
 	
 	@FXML
-	private Button home;
-	
+	private Button home;	
 	@FXML 
 	private Button display;
-	
 	@FXML
 	private Button add;
-	
 	@FXML
 	private Button remove;
-	
 	@FXML
-	private Button confrim;
-	
+	private Button addOff;
+	@FXML
+	private Button removeOff;
+	@FXML
+	private Button confrim;	
 	@FXML
 	private ListView rightDisplay;
-	
 	@FXML
-	private ListView leftDisplay;
-	
-	
-		
+	private ListView leftDisplay;	
+	@FXML
+	private ListView offList;
+	@FXML
+	private ListView addedOff;
 	@FXML
 	private ObservableList<String> athleteDisplay =FXCollections.observableArrayList();
 	@FXML
 	private ObservableList<String> athleteAdded =FXCollections.observableArrayList();
-	
+	@FXML
+	private ObservableList<String> offArrayList =FXCollections.observableArrayList();
+	@FXML
+	private ObservableList<String> offInEvent =FXCollections.observableArrayList();
 	
 	@FXML
 	private void menu(ActionEvent event) throws IOException {
@@ -77,8 +80,9 @@ public class GameController {
 	@FXML
 	private void initialize(){
 		convertList();
-//		compAth.setItems(athleteDisplay);
 		rightDisplay.setItems(athleteDisplay);
+		offList.setItems(offArrayList);
+		
 		
 	}
 	
@@ -90,6 +94,13 @@ public class GameController {
 			String newEntry = currentAthlete.getName();
 			athleteDisplay.add(newEntry);	
 //			Ozlympic.competeingArray.remove(currentAthlete);
+		}
+		
+		for(int j=0;j<Ozlympic.offs.size();j++) {
+			Official currOff = Ozlympic.offs.get(j);
+			String newEntry = currOff.getName();
+			offArrayList.add(newEntry);
+			System.out.println(newEntry);
 		}
 		
 	}

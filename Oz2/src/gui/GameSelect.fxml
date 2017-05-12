@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -25,13 +25,15 @@
          </children></VBox>
    </top>
    <center>
-      <VBox prefHeight="308.0" prefWidth="554.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="439.0" prefWidth="560.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="310.0" prefWidth="554.0">
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="rightDisplay" layoutX="-1.0" onDragDetected="#addToEvent" onDragDone="#addToEvent" onEditStart="#addToEvent" prefHeight="217.0" prefWidth="194.0" />
+                        <ListView fx:id="rightDisplay" layoutX="6.0" onDragDetected="#addToEvent" onDragDone="#addToEvent" onEditStart="#addToEvent" prefHeight="217.0" prefWidth="194.0" />
+                        <Label layoutX="86.0" layoutY="217.0" text="Label" />
+                        <Label layoutX="79.0" layoutY="258.0" text="Label" />
                      </children></Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -50,15 +52,42 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="home" layoutX="-7.0" layoutY="236.0" mnemonicParsing="false" onAction="#menu" prefHeight="36.0" prefWidth="182.0" text="Back To Main Menu" />
                      </children>
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ListView fx:id="leftDisplay" layoutX="-7.0" layoutY="-1.0" prefHeight="215.0" prefWidth="190.0" />
+                        <Label layoutX="71.0" layoutY="214.0" text="Label" />
+                        <Label layoutX="47.0" layoutY="264.0" text="Label" />
                      </children></Pane>
                </children>
             </HBox>
          </children></VBox>
    </center>
+   <bottom>
+      <HBox prefHeight="137.0" prefWidth="573.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane layoutX="-17.0" layoutY="-4.0" prefHeight="162.0" prefWidth="212.0">
+                     <children>
+                        <ListView fx:id="offList" layoutX="34.0" layoutY="-25.0" prefHeight="145.0" prefWidth="182.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="170.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="addOff" layoutX="38.0" layoutY="1.0" mnemonicParsing="false" text="Add Offical" />
+                  <Button fx:id="removeOff" layoutX="38.0" layoutY="42.0" mnemonicParsing="false" text="Change Offical" />
+               </children></Pane>
+            <Pane prefHeight="167.0" prefWidth="191.0">
+               <children>
+                  <ListView fx:id="addedOff" layoutX="-42.0" layoutY="-26.0" prefHeight="50.0" prefWidth="212.0" />
+                  <Button fx:id="home" alignment="CENTER" contentDisplay="CENTER" layoutX="-11.0" layoutY="69.0" mnemonicParsing="false" onAction="#menu" prefHeight="36.0" prefWidth="182.0" text="Back To Main Menu" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
