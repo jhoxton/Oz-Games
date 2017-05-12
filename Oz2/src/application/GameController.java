@@ -88,8 +88,8 @@ public class GameController {
 	@FXML
 	private void convertList(){	 //Creates Strings based off Athlete names		
 		
-		for(int i = 0; i < Ozlympic.competeingArray.size(); i++) {			
-			Athlete currentAthlete = Ozlympic.competeingArray.get(i);					
+		for(int i = 0; i < Ozlympic.eligableAthletes.size(); i++) {			
+			Athlete currentAthlete = Ozlympic.eligableAthletes.get(i);					
 			String newEntry = currentAthlete.getName();
 			athleteDisplay.add(newEntry);	
 //			Ozlympic.competeingArray.remove(currentAthlete);
@@ -98,13 +98,10 @@ public class GameController {
 	}
 	
 	@FXML
-	private void confirmEvent(ActionEvent event) throws IOException {
-	/*
-	This copies the Athletes selected by the user into a arraylist
-	in Ozlympic to run the event off
-	Exceptions will be important here
-	Also make sure it wont run unless there are at least 4 athletes
-	 */
+	private void confirmEvent(ActionEvent event) throws IOException, TooFewAthletesException {
+	
+//	This copies the Athletes selected by the user into a arraylist in Ozlympic to run the event off
+	
 	try {
 		if(athleteAdded.size() < 4) {
 				throw new TooFewAthletesException();					
@@ -112,23 +109,21 @@ public class GameController {
 				
 				for(int i =0;i < Ozlympic.comp.size(); i++) {
 					Athlete currentAthlete = Ozlympic.comp.get(i);	
-					String name = currentAthlete.getName();
-					
+					String name = currentAthlete.getName();					
 					for(int j =0; j < athleteAdded.size(); j++) {
 						String obName = athleteAdded.get(j);
-//						if(obName.equals(name)) {
 							if(obName == name){
-//							System.out.println("FUCKING MATCH CUNT!");
+
 							Ozlympic.eventAthletes.add(currentAthlete);							
 						}
 					}
 				}
 			}
 				//TEST LOOP
-				for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
-					Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
-					System.out.println("EventAthlete " + currentAthlete.getName());
-				}
+//				for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
+//					Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
+//					System.out.println("EventAthlete " + currentAthlete.getName());
+//				}
 				
 			Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
 			Scene menuPageScene = new Scene(menuPage);
@@ -137,7 +132,7 @@ public class GameController {
 			thisStage.show();
 			
 	} catch (Exception TooFewAthletesException) {
-		System.out.println("Too few athletes");
+
 		
 //				TODO create a pop up box saying too few athletes
 		

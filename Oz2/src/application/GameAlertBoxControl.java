@@ -27,14 +27,14 @@ public class GameAlertBoxControl {
 
 	@FXML
 	private void sprintEvent(ActionEvent event) throws IOException {
-		Ozlympic.competeingArray.clear();
+		Ozlympic.eligableAthletes.clear();
 		
 		
 		Event currentEvent = Ozlympic.selectGame(1);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
 		loadArray = Ozlympic.comp;//Copies the all athletes to a new array		
 		
-		Ozlympic.competeingArray = currentEvent.loadEvent(loadArray);
+		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 		
 //		for(int i = 0; i < Ozlympic.competeingArray.size(); i++) {			
 //		Athlete currentAthlete = Ozlympic.competeingArray.get(i);			
@@ -61,12 +61,12 @@ public class GameAlertBoxControl {
 	@FXML
 	private void cycleEvent(ActionEvent event) throws IOException{
 		
-		Ozlympic.competeingArray.clear();
+		Ozlympic.eligableAthletes.clear();
 		Event currentEvent = Ozlympic.selectGame(2);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
 		loadArray = Ozlympic.comp;//Copies the all athletes to a new array		
 		
-		Ozlympic.competeingArray = currentEvent.loadEvent(loadArray);
+		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 
 		Ozlympic.upcoming = currentEvent;
 		Ozlympic.upcoming.setOfficial(eventOff);
@@ -81,12 +81,12 @@ public class GameAlertBoxControl {
 	
 	@FXML
 	private void swimEvent(ActionEvent event) throws IOException{
-		Ozlympic.competeingArray.clear();
+		Ozlympic.eligableAthletes.clear();
 		Event currentEvent = Ozlympic.selectGame(3);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
 		loadArray = Ozlympic.comp;//Copies the all athletes to a new array		
 		
-		Ozlympic.competeingArray = currentEvent.loadEvent(loadArray);
+		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 
 		Ozlympic.upcoming = currentEvent;
 		Ozlympic.upcoming.setOfficial(eventOff);

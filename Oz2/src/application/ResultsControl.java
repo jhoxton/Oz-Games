@@ -35,7 +35,7 @@ public class ResultsControl {
 		Ozlympic.eventSet = false; //Set as false so when the main menu runs again, the event object is set as null (line 73 Controller.java)
 
 		Ozlympic.finishEvent();
-		Ozlympic.competeingArray.clear();
+		Ozlympic.eligableAthletes.clear();
 		Ozlympic.eventAthletes.clear();
 
 		Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));

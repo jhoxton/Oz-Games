@@ -40,7 +40,7 @@ import java.util.Date;
 	
 	public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
 	
-	public static ArrayList<Athlete> competeingArray = new ArrayList<Athlete>(); //Temporary ArrayList to hold eligible athletes for an event. 
+	public static ArrayList<Athlete> eligableAthletes = new ArrayList<Athlete>(); //Temporary ArrayList to hold eligible athletes for an event. 
 	public static ArrayList<Athlete> eventAthletes = new ArrayList<Athlete>(); //Athletes selected by user for the event
 	
 	public static boolean eventSet = false;
@@ -93,7 +93,8 @@ import java.util.Date;
 		    out.println(Ozlympic.upcoming.getCode() + ", " + Ozlympic.upcoming.getOfficial().getId() + ", " + timeStamp);
 		    out.println(Ozlympic.upcoming.getWinner() + ", " + Ozlympic.upcoming.getFirstTime() + ", " + 5);
 		    out.println(Ozlympic.upcoming.getSecond() + ", " + Ozlympic.upcoming.getSecondTime() + ", " + 2);
-		    out.println(Ozlympic.upcoming.getThird() + ", " + Ozlympic.upcoming.getThirdTime() + ", " + 1);		    
+		    out.println(Ozlympic.upcoming.getThird() + ", " + Ozlympic.upcoming.getThirdTime() + ", " + 1);	
+		    out.println("");
 		    
 		}catch (IOException e) {
 			System.out.println("Error writting to file, please check existance of gameResults.txt");
