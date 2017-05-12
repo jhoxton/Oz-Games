@@ -3,9 +3,7 @@ package application;
 import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import exceptions.GameFullException;
-import exceptions.TooFewAthletesException;
+import exceptions.ExceptionAlert;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,12 +37,6 @@ public class GameController {
 	
 	@FXML
 	private Button remove;
-
-	@FXML
-	private ChoiceBox compAth;
-	
-	@FXML
-	private ChoiceBox inGame;
 	
 	@FXML
 	private Button confrim;
@@ -55,8 +47,7 @@ public class GameController {
 	@FXML
 	private ListView leftDisplay;
 	
-	@FXML
-	private Label info = new Label(application.Ozlympic.upcoming.getName());
+	
 		
 	@FXML
 	private ObservableList<String> athleteDisplay =FXCollections.observableArrayList();
@@ -79,6 +70,7 @@ public class GameController {
 		thisStage.show();		
 	}
 	
+	
 	@FXML
 	private void initialize(){
 		convertList();
@@ -100,13 +92,13 @@ public class GameController {
 	}
 	
 	@FXML
-	private void confirmEvent(ActionEvent event) throws TooFewAthletesException {
+	private void confirmEvent(ActionEvent event) throws ExceptionAlert {
 	
 //	This copies the Athletes selected by the user into a arraylist in Ozlympic to run the event off
 	
 	try {
 		if(athleteAdded.size() < 4) {
-				throw new TooFewAthletesException("Please add at least 4 athletes to compete");					
+				throw new ExceptionAlert("Please add at least 4 athletes to compete");					
 			} else {
 				
 				for(int i =0;i < Ozlympic.comp.size(); i++) {
@@ -132,7 +124,7 @@ public class GameController {
 			thisStage.setScene(menuPageScene);
 			thisStage.show();
 			
-	} catch (Exception TooFewAthletesException) {
+	} catch (Exception ExceptionAlert) {
 		
 		} 
 	}
@@ -147,7 +139,7 @@ public class GameController {
 		
 		try {
 			if(athleteAdded.size() > 7) {
-				throw new GameFullException("Game is full. Please add between 4 and 8 athletes"); } 
+				throw new ExceptionAlert("Game is full. Please add between 4 and 8 athletes"); } 
 			else {
 
 				
@@ -166,7 +158,7 @@ public class GameController {
 			}
 			populate();//Re populates the list of eligible Athletes 					
 //		}
-	} catch(Exception GameFullException) {
+	} catch(Exception ExceptionAlert) {
 			
 		}
 	}
@@ -178,11 +170,6 @@ public class GameController {
 		
 		athleteAdded.remove(selectedString);
 		athleteDisplay.add(selectedString);	
-//			String removeAthlete = inGame.getValue().toString();
-		
-//			athleteAdded.remove(removeAthlete);
-//			athleteDisplay.add(removeAthlete);							
-//		}
 		populate();	
 	}
 	

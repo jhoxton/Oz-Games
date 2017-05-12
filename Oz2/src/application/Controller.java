@@ -160,7 +160,7 @@ public class Controller {
 	@FXML
 	//THIS IS ATTACHED TO THE SELECT BUTTON
 	private void choiceBox(ActionEvent event) throws IOException {
-		Parent alertPage =FXMLLoader.load(getClass().getResource("AlertBox.fxml"));
+		Parent alertPage =FXMLLoader.load(getClass().getResource("EventType.fxml"));
 		Scene alertPageScene = new Scene(alertPage);
 		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		thisStage.setScene(alertPageScene);

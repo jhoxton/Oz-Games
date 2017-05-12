@@ -7,9 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-public class GameFullException extends Exception {
+public class ExceptionAlert extends Exception {
 	
-	public GameFullException(String errMsg) {
+	public ExceptionAlert(String errMsg) {
 			System.out.println("Games full Exception Run");
 			
 			Stage window = new Stage();
