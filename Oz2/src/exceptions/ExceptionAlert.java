@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class ExceptionAlert extends Exception {
 	
 	public ExceptionAlert(String errMsg) {
-			System.out.println("Games full Exception Run");
+			System.out.println("Exception Called");
 			
 			Stage window = new Stage();
 			window.initModality(Modality.APPLICATION_MODAL);

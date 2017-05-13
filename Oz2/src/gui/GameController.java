@@ -51,7 +51,7 @@ public class GameController {
 	@FXML
 	private ListView offList;
 	@FXML
-	private ListView addedOff;
+	private ListView addedOffList;
 	@FXML
 	private ObservableList<String> athleteDisplay =FXCollections.observableArrayList();
 	@FXML
@@ -60,6 +60,10 @@ public class GameController {
 	private ObservableList<String> offArrayList =FXCollections.observableArrayList();
 	@FXML
 	private ObservableList<String> offInEvent =FXCollections.observableArrayList();
+	@FXML
+	private String offString;
+	
+	private boolean isOffSet;
 	
 	@FXML
 	private void menu(ActionEvent event) throws IOException {
@@ -82,7 +86,7 @@ public class GameController {
 		convertList();
 		rightDisplay.setItems(athleteDisplay);
 		offList.setItems(offArrayList);
-		
+		isOffSet = false;
 		
 	}
 	
@@ -96,7 +100,7 @@ public class GameController {
 //			Ozlympic.competeingArray.remove(currentAthlete);
 		}
 		
-		for(int j=0;j<Ozlympic.offs.size();j++) {
+		for(int j=0;j<Ozlympic.offs.size();j++) { // Strings of Official names for selection
 			Official currOff = Ozlympic.offs.get(j);
 			String newEntry = currOff.getName();
 			offArrayList.add(newEntry);
@@ -113,8 +117,7 @@ public class GameController {
 	try {
 		if(athleteAdded.size() < 4) {
 				throw new ExceptionAlert("Please add at least 4 athletes to compete");					
-			} else {
-				
+			} else {				
 				for(int i =0;i < Ozlympic.comp.size(); i++) {
 					Athlete currentAthlete = Ozlympic.comp.get(i);	
 					String name = currentAthlete.getName();					
@@ -146,28 +149,55 @@ public class GameController {
 	private void populate() {
 //		inGame.setItems(athleteAdded);
 		leftDisplay.setItems(athleteAdded);
+		addedOffList.setItems(offInEvent);
+		
+//		addedOffList.setItems(offString);
+		
+		
+		
 	}
-	
+	@FXML
+	private void addOfficialToEvent(){
+		
+		try {
+			if(isOffSet == true) {
+				throw new ExceptionAlert("Game already has an official"); } 
+			else {				
+				String selectedString = (String) offList.getSelectionModel().getSelectedItem();
+					
+					offInEvent.add(selectedString);
+//					offString = selectedString;
+				
+					for(int i = 0; i < offArrayList.size(); i++) {	
+						String fromOfficial = offArrayList.get(i);				
+						if (selectedString.equals(fromOfficial)) {
+							offArrayList.remove(fromOfficial);
+						}
+				}			
+			} isOffSet = true;
+			populate();//Re populates the list of eligible Athletes and official					
+//		}
+	} catch(Exception ExceptionAlert) {
+			
+		}
+	}
 	@FXML
 	private void addToEvent() {		
 		
 		try {
 			if(athleteAdded.size() > 7) {
 				throw new ExceptionAlert("Game is full. Please add between 4 and 8 athletes"); } 
-			else {
-
-				
+			else {				
 				String selectedString = (String) rightDisplay.getSelectionModel().getSelectedItem();
-//				System.out.println(selectedString);
-				
 					
 					athleteAdded.add(selectedString);
 				
-				for(int i = 0; i < athleteDisplay.size(); i++) {	
-					String fromAthlete = athleteDisplay.get(i);				
-					if (selectedString.equals(fromAthlete)) {
-						athleteDisplay.remove(fromAthlete);
-					}
+				
+					for(int i = 0; i < athleteDisplay.size(); i++) {	
+						String fromAthlete = athleteDisplay.get(i);				
+						if (selectedString.equals(fromAthlete)) {
+							athleteDisplay.remove(fromAthlete);
+						}
 				}			
 			}
 			populate();//Re populates the list of eligible Athletes 					
@@ -185,7 +215,16 @@ public class GameController {
 		athleteDisplay.add(selectedString);	
 		populate();	
 	}
-	
+	@FXML
+	private void removeOffFromEvent() {	
+
+		String selectedString = (String) addedOffList.getSelectionModel().getSelectedItem();
+		
+		offInEvent.remove(selectedString);
+		offArrayList.add(selectedString);	
+		isOffSet = false;
+		populate();	
+	}
 	
 	
 	  

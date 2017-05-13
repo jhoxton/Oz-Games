@@ -78,12 +78,12 @@
             </Pane>
             <Pane prefHeight="170.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="addOff" layoutX="38.0" layoutY="1.0" mnemonicParsing="false" text="Add Offical" />
-                  <Button fx:id="removeOff" layoutX="38.0" layoutY="42.0" mnemonicParsing="false" text="Change Offical" />
+                  <Button fx:id="addOff" layoutX="38.0" layoutY="1.0" mnemonicParsing="false" onAction="#addOfficialToEvent" text="Add Offical" />
+                  <Button fx:id="removeOff" layoutX="38.0" layoutY="42.0" mnemonicParsing="false" onAction="#removeOffFromEvent" text="Remove Offical" />
                </children></Pane>
             <Pane prefHeight="167.0" prefWidth="191.0">
                <children>
-                  <ListView fx:id="addedOff" layoutX="-42.0" layoutY="-26.0" prefHeight="50.0" prefWidth="212.0" />
+                  <ListView fx:id="addedOffList" layoutX="-42.0" layoutY="-26.0" prefHeight="50.0" prefWidth="212.0" />
                   <Button fx:id="home" alignment="CENTER" contentDisplay="CENTER" layoutX="-11.0" layoutY="69.0" mnemonicParsing="false" onAction="#menu" prefHeight="36.0" prefWidth="182.0" text="Back To Main Menu" />
                </children>
             </Pane>
