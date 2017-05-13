@@ -50,11 +50,14 @@ public class MenuController  {
 	
 	@FXML
 	private void initialize() {
+		//DELETE THIS ONE
+		Ozlympic.importData();
+		
 		displayEvent();
 		if(sqlDB.sqlFound()) {
 			info.appendText("Connected");
 		} else {
-			
+			Ozlympic.importData();
 		}
 //		writeDB
 		
@@ -72,7 +75,7 @@ public class MenuController  {
 		thisStage.show();	
 		
 		} else {
-			nextEvent.setText("Please choose and event first");
+			nextEvent.setText("Please choose an event first");
 		}
 	}
 	@FXML

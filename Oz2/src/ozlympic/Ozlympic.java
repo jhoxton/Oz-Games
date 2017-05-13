@@ -88,7 +88,7 @@ import filio.sql;
 		
 		public static void main(String[] args) {			
 		Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
-		Ozlympic.importData();
+//		Ozlympic.importData();
 			launch(args);	
 		}
 
