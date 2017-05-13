@@ -105,7 +105,7 @@ public class GameController {
 			Official currOff = Ozlympic.offs.get(j);
 			String newEntry = currOff.getName();
 			offArrayList.add(newEntry);
-			System.out.println(newEntry);
+//			System.out.println(newEntry);
 		}
 		
 	}
@@ -163,14 +163,14 @@ public class GameController {
 		
 	}
 	@FXML
-	private void addOfficialToEvent(){
-		
+	private void addOfficialToEvent(){		
 		try {
 			if(isOffSet == true) {
 				throw new ExceptionAlert("Game already has an official"); } 
 			else {				
 				String selectedString = (String) offList.getSelectionModel().getSelectedItem();
 					
+				if(selectedString != null) {
 					offInEvent.add(selectedString);
 //					offString = selectedString;
 				
@@ -179,7 +179,8 @@ public class GameController {
 						if (selectedString.equals(fromOfficial)) {
 							offArrayList.remove(fromOfficial);
 						}
-				}			
+					}
+				}	
 			} isOffSet = true;
 			
 			populate();//Re populates the list of eligible Athletes and official					
@@ -197,6 +198,7 @@ public class GameController {
 			else {				
 				String selectedString = (String) rightDisplay.getSelectionModel().getSelectedItem();
 					
+				if(selectedString != null) {
 					athleteAdded.add(selectedString);
 				
 				
@@ -205,7 +207,8 @@ public class GameController {
 						if (selectedString.equals(fromAthlete)) {
 							athleteDisplay.remove(fromAthlete);
 						}
-				}			
+					}
+				}
 			}
 			populate();//Re populates the list of eligible Athletes 					
 //		}
@@ -217,20 +220,22 @@ public class GameController {
 	private void removeFromEvent() {	
 
 		String selectedString = (String) leftDisplay.getSelectionModel().getSelectedItem();
-		
-		athleteAdded.remove(selectedString);
-		athleteDisplay.add(selectedString);	
-		populate();	
+		if(selectedString != null) { 
+			athleteAdded.remove(selectedString);
+			athleteDisplay.add(selectedString);	
+			populate();	
+		}
 	}
 	@FXML
 	private void removeOffFromEvent() {	
 
 		String selectedString = (String) addedOffList.getSelectionModel().getSelectedItem();
-		
-		offInEvent.remove(selectedString);
-		offArrayList.add(selectedString);	
-		isOffSet = false;
-		populate();	
+		if(selectedString != null) { 
+			offInEvent.remove(selectedString);
+			offArrayList.add(selectedString);	
+			isOffSet = false;
+			populate();	
+		}
 	}
 	private void matchOfficial() {
 		

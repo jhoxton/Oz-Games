@@ -32,8 +32,15 @@
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ListView fx:id="rightDisplay" layoutX="6.0" onDragDetected="#addToEvent" onDragDone="#addToEvent" onEditStart="#addToEvent" prefHeight="217.0" prefWidth="194.0" />
-                        <Label layoutX="86.0" layoutY="217.0" text="Label" />
-                        <Label layoutX="79.0" layoutY="258.0" text="Label" />
+                        <Label alignment="CENTER" layoutX="5.0" layoutY="217.0" prefHeight="12.0" prefWidth="180.0" text="Eligible Athletes">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
+                        <Label alignment="CENTER" layoutX="20.0" layoutY="252.0" prefHeight="12.0" prefWidth="180.0" text="Officials">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
                      </children></Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -57,8 +64,16 @@
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ListView fx:id="leftDisplay" layoutX="-7.0" layoutY="-1.0" prefHeight="215.0" prefWidth="190.0" />
-                        <Label layoutX="71.0" layoutY="214.0" text="Label" />
-                        <Label layoutX="47.0" layoutY="264.0" text="Label" />
+                        <Label alignment="CENTER" layoutX="-7.0" layoutY="253.0" prefHeight="12.0" prefWidth="180.0" text="Selected Official">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="-2.0" layoutY="220.0" prefHeight="12.0" prefWidth="180.0" text="Selected Athletes">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
                      </children></Pane>
                </children>
             </HBox>

@@ -23,7 +23,9 @@ public class ResultsControl {
 	@FXML
 	private void initialize() {
 		resultsBox.appendText("Event " + Ozlympic.upcoming.getCode());
+		resultsBox.appendText("\n");
 		resultsBox.appendText("\nOverseeing Official: " + Ozlympic.upcoming.getOfficial().getName());
+		resultsBox.appendText("\n");
 		resultsBox.appendText("\nFirst place is: " + Ozlympic.upcoming.getWinner() + " at " + Ozlympic.upcoming.getFirstTime());
 		resultsBox.appendText("\nSecond place is: " + Ozlympic.upcoming.getSecond() + " at " + Ozlympic.upcoming.getSecondTime());
 		resultsBox.appendText("\nThird place is: " + Ozlympic.upcoming.getThird() + " at " + Ozlympic.upcoming.getThirdTime());
