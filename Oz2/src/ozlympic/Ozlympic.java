@@ -172,9 +172,11 @@ import filio.readFile;
 	public static void finishEvent() {
 
 	
-		String result = new String ("========\n" + "The winner of " + (upcoming.getCode()) + " was " + (upcoming.getWinner()) + "\n" +
+		String result = new String ("========\n" + 
+				"The winner of " + (upcoming.getCode()) + " was " + (upcoming.getWinner()) + "\n" +
 				"Second place was " + (upcoming.getSecond()) + "\n" +
-				"Third place was " + (upcoming.getThird()) + "\n");
+				"Third place was " + (upcoming.getThird()) + "\n" +
+				"The overseeing official was " + (upcoming.getOfficial().getName() + "" + (upcoming.getOfficial().getId())));
 		//Adds the events details (as a String) to the "done" array list
 		done.add(result);
 
@@ -192,10 +194,10 @@ import filio.readFile;
 	}
 
 
-	public static Official pickOfficial(ArrayList<Official> offs) {
-	    Random rand = new Random(); 
-	    Official randomOff = offs.get(rand.nextInt(offs.size()));
-	    return randomOff;
-	}
+//	public static Official pickOfficial(ArrayList<Official> offs) {
+//	    Random rand = new Random(); 
+//	    Official randomOff = offs.get(rand.nextInt(offs.size()));
+//	    return randomOff;
+//	}
 
 }

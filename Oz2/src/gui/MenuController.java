@@ -23,7 +23,7 @@ import javafx.event.Event;
 import javafx.scene.control.TextField;
 
 
-public class Controller {
+public class MenuController {
 //	public static Ozlympic oz = new Ozlympic();
 	
 	@FXML
@@ -91,8 +91,8 @@ public class Controller {
 	@FXML
 	private void printGames() {
 		for (int i = 0; i < Ozlympic.done.size(); i++) {
-			String test = Ozlympic.done.get(i);
-		info.appendText(test);
+			String finishedGame = Ozlympic.done.get(i);
+		info.appendText(finishedGame);
 		}		
 	}
 	

@@ -26,7 +26,7 @@ public class GameAlertBoxControl {
 	private Button cycle;
 	@FXML
 	private Button swim;
-	Official eventOff = Ozlympic.pickOfficial(Ozlympic.offs);
+//	Official eventOff = Ozlympic.pickOfficial(Ozlympic.offs);
 	
 
 	@FXML
@@ -46,7 +46,7 @@ public class GameAlertBoxControl {
 //	} TEST LOOP DELETE THIS
 		
 		Ozlympic.upcoming = currentEvent; //Sets the next event as "upcoming" in Ozlympic
-		Ozlympic.upcoming.setOfficial(eventOff);
+//		Ozlympic.upcoming.setOfficial(eventOff);
 //		System.out.println(Ozlympic.upcoming.getOfficial().getName());
 		//Runs "loadEvent"(which selects eligible athletes for the event) and copies them to
 		//"competeingArray", which will be used to run the Game
@@ -73,7 +73,7 @@ public class GameAlertBoxControl {
 		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 
 		Ozlympic.upcoming = currentEvent;
-		Ozlympic.upcoming.setOfficial(eventOff);
+//		Ozlympic.upcoming.setOfficial(eventOff);
 //		System.out.println(Ozlympic.upcoming.getOfficial().getName());
 		
 		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
@@ -93,7 +93,7 @@ public class GameAlertBoxControl {
 		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 
 		Ozlympic.upcoming = currentEvent;
-		Ozlympic.upcoming.setOfficial(eventOff);
+//		Ozlympic.upcoming.setOfficial(eventOff);
 //		System.out.println(Ozlympic.upcoming.getOfficial().getName());
 	
 		

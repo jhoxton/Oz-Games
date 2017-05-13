@@ -60,8 +60,9 @@ public class GameController {
 	private ObservableList<String> offArrayList =FXCollections.observableArrayList();
 	@FXML
 	private ObservableList<String> offInEvent =FXCollections.observableArrayList();
-	@FXML
-	private String offString;
+	
+			@FXML
+			private String offString;
 	
 	private boolean isOffSet;
 	
@@ -108,42 +109,47 @@ public class GameController {
 		}
 		
 	}
-	
 	@FXML
 	private void confirmEvent(ActionEvent event) throws ExceptionAlert {
 	
 //	This copies the Athletes selected by the user into a arraylist in Ozlympic to run the event off
-	
-	try {
-		if(athleteAdded.size() < 4) {
-				throw new ExceptionAlert("Please add at least 4 athletes to compete");					
-			} else {				
-				for(int i =0;i < Ozlympic.comp.size(); i++) {
-					Athlete currentAthlete = Ozlympic.comp.get(i);	
-					String name = currentAthlete.getName();					
-					for(int j =0; j < athleteAdded.size(); j++) {
-						String obName = athleteAdded.get(j);
-							if(obName == name){
-							Ozlympic.eventAthletes.add(currentAthlete);							
+		try {
+			if(isOffSet == false) {
+				throw new ExceptionAlert("Please select an Official");
+			} else { 
+				try {
+					if(athleteAdded.size() < 4) {
+							throw new ExceptionAlert("Please add at least 4 athletes to compete");					
+						} else {				
+							for(int i =0;i < Ozlympic.comp.size(); i++) {
+								Athlete currentAthlete = Ozlympic.comp.get(i);	
+								String name = currentAthlete.getName();					
+								for(int j =0; j < athleteAdded.size(); j++) {
+									String obName = athleteAdded.get(j);
+										if(obName == name){
+										Ozlympic.eventAthletes.add(currentAthlete);							
+									}
+								}
+							}
 						}
-					}
-				}
+							//TEST LOOP
+			//				for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
+			//					Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
+			//					System.out.println("EventAthlete " + currentAthlete.getName());
+			//				}
+						matchOfficial();
+						Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
+						Scene menuPageScene = new Scene(menuPage);
+						Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+						thisStage.setScene(menuPageScene);
+						thisStage.show();
+						
+				} catch (Exception ExceptionAlert) {
+						} 
 			}
-				//TEST LOOP
-//				for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
-//					Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
-//					System.out.println("EventAthlete " + currentAthlete.getName());
-//				}
-				
-			Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
-			Scene menuPageScene = new Scene(menuPage);
-			Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			thisStage.setScene(menuPageScene);
-			thisStage.show();
+		} catch (Exception ExceptionAlert) {
 			
-	} catch (Exception ExceptionAlert) {
-		
-		} 
+		}
 	}
 	@FXML
 	private void populate() {
@@ -175,6 +181,7 @@ public class GameController {
 						}
 				}			
 			} isOffSet = true;
+			
 			populate();//Re populates the list of eligible Athletes and official					
 //		}
 	} catch(Exception ExceptionAlert) {
@@ -224,6 +231,25 @@ public class GameController {
 		offArrayList.add(selectedString);	
 		isOffSet = false;
 		populate();	
+	}
+	private void matchOfficial() {
+		
+		for(int i =0;i < Ozlympic.offs.size(); i++) {
+			
+			Official loopOff = Ozlympic.offs.get(i);	
+			String name = loopOff.getName();					
+			
+			for(int j =0; j < offInEvent.size(); j++) {
+				String obName = offInEvent.get(j);
+					if(obName == name){
+					Ozlympic.upcoming.setOfficial(loopOff);
+										
+				}
+			}
+		}
+		
+		
+		
 	}
 	
 	
