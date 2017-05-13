@@ -1,13 +1,16 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import filio.sql;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,11 +26,9 @@ import javafx.event.Event;
 import javafx.scene.control.TextField;
 
 
-public class MenuController {
+public class MenuController  {
 //	public static Ozlympic oz = new Ozlympic();
 	
-	@FXML
-	private Button test;
 	@FXML
 	private Button quit;
 	@FXML
@@ -45,11 +46,17 @@ public class MenuController {
 	@FXML
 	private Button start;
 	
+	public sql sqlDB = new sql();
+	
 	@FXML
 	private void initialize() {
 		displayEvent();
-//		oz.importData();
-		
+		if(sqlDB.sqlFound()) {
+			info.appendText("Connected");
+		} else {
+			
+		}
+//		writeDB
 		
 	}
 	
@@ -77,17 +84,14 @@ public class MenuController {
 			nextEvent.setText("Next event is: " +  Ozlympic.upcoming.getName() + "\n" +Ozlympic.upcoming.getCode());
 			for(int i = 0; i < Ozlympic.eventAthletes.size(); i++) {			
 				Athlete currentAthlete = Ozlympic.eventAthletes.get(i);						
-				info.appendText("\nName: " +currentAthlete.getName());
-						
+				info.appendText("\nName: " +currentAthlete.getName());						
 			}
 		} else {
 			Ozlympic.upcoming = null; //Resets the upcoming event via "eventSet" boolean (Line 35 ResultsController.java)
 			nextEvent.setText("No upcoming events right now\n\nPlease press Select Next Game to begin" );
 		}
-
 	}
 
-//
 	@FXML
 	private void printGames() {
 		for (int i = 0; i < Ozlympic.done.size(); i++) {
@@ -95,18 +99,7 @@ public class MenuController {
 		info.appendText(finishedGame);
 		}		
 	}
-	
-	@FXML
-	private void testing(){
-//		if(Ozlympic.eventSet == true) {
-//			info.appendText(Ozlympic.upcoming.getOfficial().getName());
-//		} else {
-//			info.appendText("Please select a game first");
-//		}
-		info.appendText("TEST BUTTON PLEASE IGNORE\n");
 		
-	}
-	
 	@FXML
 	private void quitApp() {
 		Stage stage = (Stage) quit.getScene().getWindow();
@@ -148,4 +141,7 @@ public class MenuController {
 		thisStage.setScene(alertPageScene);
 		thisStage.show();		
 	}
+
+	
+	
 }

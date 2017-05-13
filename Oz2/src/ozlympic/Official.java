@@ -7,7 +7,7 @@ public class Official {
 	private String type;
 	private int age;
 	private String state;
-	private int score;
+	private int score; //Score isn't actually used, it just to help I/O files
 	
 	
 	public Official(int id, String name, String type, int age, String state, int score) {

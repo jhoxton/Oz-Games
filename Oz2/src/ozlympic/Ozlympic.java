@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.IOException;
@@ -21,25 +22,26 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
-//import org.junit.*;
-//import static org.junit.Assert.*;
+
 
 
 import java.util.Date;
 
 import filio.readFile;
+import filio.sql;
 
 /*
- * Advanced Programming Semester 1 2017 Assignment 1
- * Jake Novak s3609685
- * 
+ * Advanced Programming Semester 1 2017 Assignment 2
+ *
+ * @author Jake Novak s3609685
+ *
  * github: github.com/jhoxton/AP
- * 
- * Some println functions have been left in (commented out) to show points I used for testing
  *
  */
 
 	public class Ozlympic extends Application {
+		
+//		public sql sqlDB = new sql();
 		
 		public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); //ArrayList containing ALL athletes
 		public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals
