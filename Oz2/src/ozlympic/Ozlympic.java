@@ -65,9 +65,9 @@ import filio.readFile;
 
 		public void primaryStage() throws IOException { //Sets up the primary stage
 			
-				BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/gui/Menu.fxml"));
+				BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/Menu.fxml"));
 				Scene scene = new Scene(root,490,400);
-				scene.getStylesheets().add(getClass().getResource("/gui/application.css").toExternalForm());
+				scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 				primaryStage.setScene(scene);
 				primaryStage.show();	
 		}
