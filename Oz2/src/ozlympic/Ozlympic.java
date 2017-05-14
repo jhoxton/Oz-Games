@@ -30,7 +30,7 @@ import java.util.Date;
 import filio.readFile;
 import filio.sql;
 
-/*
+/**
  * Advanced Programming Semester 1 2017 Assignment 2
  *
  * @author Jake Novak s3609685
@@ -44,26 +44,17 @@ import filio.sql;
 //		public sql sqlDB = new sql();
 		
 		public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); //ArrayList containing ALL athletes
-		public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals
-		
+		public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals		
 		public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
-		
 		public static ArrayList<Athlete> eligableAthletes = new ArrayList<Athlete>(); //Temporary ArrayList to hold eligible athletes for an event. 
 		public static ArrayList<Athlete> eventAthletes = new ArrayList<Athlete>(); //Athletes selected by user for the event
-		
 		public static boolean eventSet = false; //To check if the Event has all the info it needs to run
-		
-		
-
-		public static Event upcoming = new Event();//This is the primary event object for each Game
-		
+		public static Event upcoming = new Event();//This is the primary event object for each Game		
 		static PrintWriter out = null;
-		
-		static String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
-		
+		static String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());		
 		public static Stage primaryStage;
-		private Scene scene1;
-		private Scene scene2;
+		
+		public static sql sqlDB = new sql();
 
 		public void primaryStage() throws IOException { //Sets up the primary stage
 			
@@ -88,7 +79,8 @@ import filio.sql;
 		
 		public static void main(String[] args) {			
 		Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
-//		Ozlympic.importData();
+		Ozlympic.importData();
+		sqlDB.selectAll(); 
 			launch(args);	
 		}
 

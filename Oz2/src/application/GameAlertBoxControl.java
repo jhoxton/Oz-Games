@@ -2,6 +2,7 @@ package application;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import exceptions.ExceptionAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +37,7 @@ public class GameAlertBoxControl {
 		
 		Event currentEvent = Ozlympic.selectGame(1);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
-		loadArray = Ozlympic.comp;//Copies the all athletes to a new array		
+		loadArray = Ozlympic.comp;//Copies the all athlete references to the loadArray array		
 		
 		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 		
@@ -46,13 +47,14 @@ public class GameAlertBoxControl {
 //	} TEST LOOP DELETE THIS
 		
 		Ozlympic.upcoming = currentEvent; //Sets the next event as "upcoming" in Ozlympic
+		
 //		Ozlympic.upcoming.setOfficial(eventOff);
 //		System.out.println(Ozlympic.upcoming.getOfficial().getName());
 		//Runs "loadEvent"(which selects eligible athletes for the event) and copies them to
 		//"competeingArray", which will be used to run the Game
 	
 		//TODO Change event to abstarct, cast when accessing 
-		
+
 		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
 		Scene gamePageScene = new Scene(gamePage);
 		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -73,9 +75,7 @@ public class GameAlertBoxControl {
 		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 
 		Ozlympic.upcoming = currentEvent;
-//		Ozlympic.upcoming.setOfficial(eventOff);
-//		System.out.println(Ozlympic.upcoming.getOfficial().getName());
-		
+
 		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
 		Scene gamePageScene = new Scene(gamePage);
 		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -93,9 +93,7 @@ public class GameAlertBoxControl {
 		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
 
 		Ozlympic.upcoming = currentEvent;
-//		Ozlympic.upcoming.setOfficial(eventOff);
-//		System.out.println(Ozlympic.upcoming.getOfficial().getName());
-	
+
 		
 		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
 		Scene gamePageScene = new Scene(gamePage);

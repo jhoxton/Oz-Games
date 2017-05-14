@@ -68,11 +68,22 @@ public class GameController {
 	
 	@FXML
 	private void menu(ActionEvent event) throws IOException {
+		//TODO What the actual fuck?
+		rightDisplay.getItems().clear();
+		leftDisplay.getItems().clear();
+		offList.getItems().clear();
+		addedOffList.getItems().clear();
 		
 		athleteAdded.clear();
 		athleteDisplay.clear();
 		Ozlympic.eventSet = false;
-		Ozlympic.eligableAthletes.clear();
+		Ozlympic.eligableAthletes.clear();	
+		offArrayList.clear();
+		offInEvent.clear();
+	
+		
+		
+		
 
 		Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		Scene menuPageScene = new Scene(menuPage);
@@ -247,16 +258,40 @@ public class GameController {
 			for(int j =0; j < offInEvent.size(); j++) {
 				String obName = offInEvent.get(j);
 					if(obName == name){
-					Ozlympic.upcoming.setOfficial(loopOff);
-										
+					Ozlympic.upcoming.setOfficial(loopOff);										
 				}
 			}
 		}
-		
-		
-		
 	}
-	
+	@FXML
+	private void checkType() {
+		String checkingEvent;
+				Ozlympic.upcoming.getName();
+		System.out.println(Ozlympic.upcoming.getName());
+		String checkingAthlete;
+		for(int i = 0; i < Ozlympic.eligableAthletes.size(); i++) {			
+			checkingAthlete = Ozlympic.eligableAthletes.get(i).getType();
+			
+			
+			
+			try {
+				if(Ozlympic.upcoming.getName().equals("Swimming Event")) {
+					System.out.println("Swimmer");
+				} else if (Ozlympic.upcoming.getName().equals("Cycling Event")) {
+					System.out.println("Cyclist");
+				} else if (Ozlympic.upcoming.getName().equals("Running Event")) {
+					System.out.println("Sprinter");	
+					} else {
+				throw new ExceptionAlert("Athlete is of incorrect type");
+					}
+				
+			} catch (Exception ExceptionAlert) {
+				
+			} 
+			
+			
+		}
+	}
 	
 	  
 }

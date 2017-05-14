@@ -2,6 +2,8 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -46,20 +48,23 @@ public class MenuController  {
 	@FXML
 	private Button start;
 	
-	public sql sqlDB = new sql();
+//	public sql sqlDB = new sql();
 	
 	@FXML
-	private void initialize() {
+	private void initialize() throws SQLException {
 		//DELETE THIS ONE
-		Ozlympic.importData();
+//TODO if/else here to switch between sql and .txt
+//		Ozlympic.importData();
 		
 		displayEvent();
-		if(sqlDB.sqlFound()) {
-			info.appendText("Connected");
-		} else {
-			Ozlympic.importData();
-		}
-//		writeDB
+//		sqlDB.selectAll(); 
+//			info.appendText("Connected");
+			
+	
+
+		
+		
+		
 		
 	}
 	

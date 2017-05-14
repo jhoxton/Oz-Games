@@ -31,7 +31,7 @@
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="rightDisplay" layoutX="6.0" onDragDetected="#addToEvent" onDragDone="#addToEvent" onEditStart="#addToEvent" prefHeight="217.0" prefWidth="194.0" />
+                        <ListView fx:id="rightDisplay" layoutX="6.0" prefHeight="217.0" prefWidth="194.0" />
                         <Label alignment="CENTER" layoutX="5.0" layoutY="217.0" prefHeight="12.0" prefWidth="180.0" text="Eligible Athletes">
                            <font>
                               <Font name="System Bold" size="13.0" />
