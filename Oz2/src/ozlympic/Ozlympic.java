@@ -77,10 +77,18 @@ import filio.sql;
 		}
 		
 		
-		public static void main(String[] args) {			
+		public static void main(String[] args) {	
+		
 		Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
-		Ozlympic.importData();
-		sqlDB.selectAll(); 
+		
+//		Ozlympic.importData();
+		
+//		ADD A FUCKING IF ELSE CAUSE HERE YOU DOOZY CUNT
+		
+		sqlDB.selectAll();
+
+
+		
 			launch(args);	
 		}
 
@@ -187,11 +195,5 @@ import filio.sql;
 
 	}
 
-
-//	public static Official pickOfficial(ArrayList<Official> offs) {
-//	    Random rand = new Random(); 
-//	    Official randomOff = offs.get(rand.nextInt(offs.size()));
-//	    return randomOff;
-//	}
 
 }

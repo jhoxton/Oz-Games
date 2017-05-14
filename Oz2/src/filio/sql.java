@@ -9,9 +9,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import exceptions.ExceptionAlert;
 import ozlympic.Athlete;
+import ozlympic.Cyclist;
+import ozlympic.Official;
+import ozlympic.Ozlympic;
+import ozlympic.Sprinter;
+import ozlympic.SuperAthlete;
+import ozlympic.Swimmer;
 
 public class sql {
-    private Connection connect() {
+    
+	private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:participants.sqlite";
         Connection conn = null;
@@ -38,32 +45,46 @@ public class sql {
             
             // loop through the result set
             while (rs.next()) {
-//                System.out.println(
-                					int id = rs.getInt("id"); 
-//                					+  "\t" + 
-                                   String name = rs.getString("name"); 
-//                                   + "\t" +
-                                   String type = rs.getString("type");
-//                                   + "\t" +
-                                   int age = rs.getInt("age");
-//                                   + "\t" +
-                                   String state = rs.getString("state");
-//                                   + "\t" +
-                                  int score = rs.getInt("score");
-                                   System.out.println(id + " " + name + " " + type + " " +age + " " +state + " " + score);
-//                		);
+
+                				int id = rs.getInt("id"); 
+                                String name = rs.getString("name"); 
+                                String type = rs.getString("type");
+                                int age = rs.getInt("age");
+                                String state = rs.getString("state");
+                                int score = rs.getInt("score");
+//                                   System.out.println(id + " " + name + " " + type + " " +age + " " +state + " " + score);
+
                                    Athlete test = new Athlete(id, name,type, age, state, score);
-                                   sqlAthlete.add(test);
+//                                   sqlAthlete.add(test);
+//                                   Ozlympic.comp.add(test);
                 				
+                                if (test.getType().equals("Cyclist")) {				
+                       				Cyclist cycleIn = new Cyclist(id, name,type, age, state, score);
+                       				Ozlympic.comp.add(cycleIn);				
+                       			}
+                       			
+                       			else if (test.getType().equals("Swimmer")) {
+                       				Swimmer SwimIn = new Swimmer(id, name,type, age, state, score);
+                       				Ozlympic.comp.add(SwimIn);				
+                       			}
+                       			
+                       			else if (test.getType().equals("Sprinter")) {				
+                       				Sprinter SprintIn = new Sprinter(id, name,type, age, state, score);
+                       				Ozlympic.comp.add(SprintIn);				
+                       			}
+                       			else if (test.getType().equals("Super")) {
+                       				SuperAthlete SuperIn = new SuperAthlete(id, name,type, age, state, score);
+                       				Ozlympic.comp.add(SuperIn);		
+                       			} else if (test.getType().equals("Official")) {
+                       				Official OffIn = new Official(id, name,type, age, state, score);
+                       				Ozlympic.offs.add(OffIn);				
+                       			}
             }
+           
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-        	for(int fuck = 0; fuck < sqlAthlete.size(); fuck++) {
-        		Athlete test = sqlAthlete.get(fuck);
-        		System.out.println("DID YOU WORKING WORK?\n" + test.getName());
-        	}
-        }
+        } 
+		
     }  
 	
 	

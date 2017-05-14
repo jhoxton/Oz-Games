@@ -32,14 +32,25 @@ public class GameAlertBoxControl {
 
 	@FXML
 	private void sprintEvent(ActionEvent event) throws IOException {
+		
+//					for(int fuck = 0; fuck < Ozlympic.comp.size(); fuck++) {
+//			    		Athlete test = Ozlympic.comp.get(fuck);
+//			    		System.out.println("DID YOU FUCKING WORK?\n" + test.getName());   		
+//			    	}
+//					
 		Ozlympic.eligableAthletes.clear();
 		
 		
 		Event currentEvent = Ozlympic.selectGame(1);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
-		loadArray = Ozlympic.comp;//Copies the all athlete references to the loadArray array		
+		loadArray = Ozlympic.comp;//Copies the all athlete references to the loadArray array
+		
+
 		
 		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
+		
+		
+					
 		
 //		for(int i = 0; i < Ozlympic.competeingArray.size(); i++) {			
 //		Athlete currentAthlete = Ozlympic.competeingArray.get(i);			
