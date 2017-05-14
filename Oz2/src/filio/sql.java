@@ -18,12 +18,15 @@ import ozlympic.Swimmer;
 
 public class sql {
     
+//	public boolean sqlConnected = false;
+//	
 	private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:participants.sqlite";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
+        	Ozlympic.sqlConnected = true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -35,16 +38,14 @@ public class sql {
      * select all rows in the sql table
      */
     public void selectAll(){
-    	ArrayList<Athlete> sqlAthlete = new ArrayList<Athlete>();
-    	
+  
         String sql = "SELECT id, name, type, age, state, score FROM participants";
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-            
-            // loop through the result set
-            while (rs.next()) {
+           
+            while (rs.next()) {//Loops through the database
 
                 				int id = rs.getInt("id"); 
                                 String name = rs.getString("name"); 
@@ -79,10 +80,10 @@ public class sql {
                        				Official OffIn = new Official(id, name,type, age, state, score);
                        				Ozlympic.offs.add(OffIn);				
                        			}
-            }
+            }	
            
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("SQL connection not found");
         } 
 		
     }  
