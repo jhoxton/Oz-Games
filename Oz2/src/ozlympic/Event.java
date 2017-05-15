@@ -1,9 +1,17 @@
 package ozlympic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Random;
 
+/**
+ * Advanced Programming Semester 1 2017 Assignment 2
+ *
+ * @author Jake Novak s3609685
+ *
+ * github: github.com/jhoxton/AP
+ *
+ */
 public class Event {
 	
 	private static String name;
@@ -43,93 +51,72 @@ public class Event {
 		athInComp.remove(ath3);
 
 		if ( time1 < time2 && time1 < time3 ) { //ATH1 WINS
-//			System.out.println("The winner is " + ath1.getName() + " at " + time1);
 			ath1.setScore(5);			
 			setWinner(ath1.getName());
 			setWinnerId(ath1.getId());
 			setFirstTime(time1);
 			
 			if (time2 < time3) {
-//				System.out.println("\nSecond place is " + ath2.getName() + " at " + time2);
 				ath2.setScore(2);				
 				setSecond(ath2.getName());	
 				setSecondTime(time2);
-//				System.out.println("\nThird place is " + ath3.getName() + " at " + time3);
 				ath3.setScore(1);
 				setThird(ath3.getName());
 				setThirdTime(time3);
-//				System.out.println("=============");
 				
 			} else if (time3 < time2) {
-//				System.out.println("\nSecond place is " + ath3.getName() + " at " + time3);
 				ath3.setScore(2);
 				setSecond(ath3.getName());
 				setSecondTime(time3);
-//				System.out.println("\nThird place is " + ath2.getName() + " at " + time2);
 				ath2.setScore(1);
 				setThird(ath2.getName());
 				setThirdTime(time2);
-//				System.out.println("=============");
 				
 			}						
 		} else if (time2 < time1 && time2 < time3) {//ATH2 WINS		
-//			System.out.println("The winner is " + ath2.getName() + " at " + time2);
 			ath2.setScore(5);					
 			setWinner(ath2.getName());
 			setWinnerId(ath2.getId());
 			setFirstTime(time2);
 			
 			if (time1 < time3) {
-//				System.out.println("\nSecond place is " + ath1.getName() + " at " + time1);
 				ath1.setScore(2);
 				setSecond(ath1.getName());
 				setSecondTime(time1);
-//				System.out.println("\nThird place is " + ath3.getName() + " at " + time3);
 				ath3.setScore(1);
 				setThird(ath3.getName());
 				setThirdTime(time3);
-//				System.out.println("=============");
 				
 			} else if (time3 < time1) {
-//				System.out.println("\nSecond place is " + ath3.getName() + " at " + time3);
 				ath3.setScore(2);
 				setSecond(ath3.getName());
 				setSecondTime(time3);
-//				System.out.println("\nThird place is " + ath1.getName() + " at " + time2);
 				ath2.setScore(1);
 				setThird(ath2.getName());
 				setThirdTime(time2);
-//				System.out.println("=============");
 				
 			}
 		} else if ( time3 < time2 && time3 < time1 ) {	//ATH3 WINS
-//			System.out.println("\nThe winner is " + ath3.getName() + " at " + time3);
 			ath3.setScore(5);
 			setWinner(ath3.getName());
 			setWinnerId(ath3.getId());
 			setFirstTime(time3);
 			
 			if (time2 < time1) {
-//				System.out.println("\nSecond place is " + ath2.getName() + " at " + time2);
 				ath2.setScore(2);
 				setSecond(ath2.getName());
 				setSecondTime(time2);
-//				System.out.println("\nThird place is " + ath1.getName() + " at " + time1);
 				ath1.setScore(1);
 				setThird(ath1.getName());
 				setThirdTime(time1);
-//				System.out.println("=============");
 				
 			} else if (time1 < time2) {
-//				System.out.println("\nSecond place is " + ath1.getName() + " at " + time1);
 				ath1.setScore(2);
 				setSecond(ath1.getName());
 				setSecondTime(time1);
-//				System.out.println("\nThird place is " + ath2.getName() + " at " + time2);
 				ath2.setScore(1);
 				setThird(ath2.getName());
 				setThirdTime(time2);
-//				System.out.println("=============");				
 			}
 		}
 		

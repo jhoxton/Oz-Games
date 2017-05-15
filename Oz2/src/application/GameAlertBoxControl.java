@@ -20,58 +20,38 @@ import ozlympic.Official;
 import ozlympic.Ozlympic;
 
 public class GameAlertBoxControl {
-	
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */	
 	@FXML
 	private Button sprint;
 	@FXML
 	private Button cycle;
 	@FXML
 	private Button swim;
-//	Official eventOff = Ozlympic.pickOfficial(Ozlympic.offs);
 	
 
 	@FXML
 	private void sprintEvent(ActionEvent event) throws IOException {
-		
-//					for(int fuck = 0; fuck < Ozlympic.comp.size(); fuck++) {
-//			    		Athlete test = Ozlympic.comp.get(fuck);
-//			    		System.out.println("DID YOU FUCKING WORK?\n" + test.getName());   		
-//			    	}
-//					
-		Ozlympic.eligableAthletes.clear();
-		
-		
+
+		Ozlympic.eligableAthletes.clear();				
 		Event currentEvent = Ozlympic.selectGame(1);//Selects game on Ozlymopic object
 		ArrayList<Athlete> loadArray = new ArrayList<Athlete>();//Blank Athlete array		
 		loadArray = Ozlympic.comp;//Copies the all athlete references to the loadArray array
-		
 
-		
 		Ozlympic.eligableAthletes = currentEvent.loadEvent(loadArray);
-		
-		
-					
-		
-//		for(int i = 0; i < Ozlympic.competeingArray.size(); i++) {			
-//		Athlete currentAthlete = Ozlympic.competeingArray.get(i);			
-//		System.out.println("Type: " + currentAthlete.getType() + "Name: " + currentAthlete.getName());			
-//	} TEST LOOP DELETE THIS
-		
 		Ozlympic.upcoming = currentEvent; //Sets the next event as "upcoming" in Ozlympic
-		
-//		Ozlympic.upcoming.setOfficial(eventOff);
-//		System.out.println(Ozlympic.upcoming.getOfficial().getName());
-		//Runs "loadEvent"(which selects eligible athletes for the event) and copies them to
-		//"competeingArray", which will be used to run the Game
-	
-		//TODO Change event to abstarct, cast when accessing 
 
 		Parent gamePage =FXMLLoader.load(getClass().getResource("GameSelect.fxml"));
 		Scene gamePageScene = new Scene(gamePage);
 		Stage thisStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		thisStage.setScene(gamePageScene);
-		thisStage.show();	
-		
+		thisStage.show();			
 	}
 
 	

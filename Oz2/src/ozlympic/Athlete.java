@@ -2,8 +2,15 @@ package ozlympic;
 
 
 public class Athlete {
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */	
 	
-//	Add a "type" parameter for the text file. This can designate the type of object.	
 	private int id;
 	private String name;
 	private String type;

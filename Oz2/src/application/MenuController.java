@@ -29,7 +29,14 @@ import javafx.scene.control.TextField;
 
 
 public class MenuController  {
-//	public static Ozlympic oz = new Ozlympic();
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */
 	
 	@FXML
 	private Button quit;
@@ -51,21 +58,9 @@ public class MenuController  {
 //	public sql sqlDB = new sql();
 	
 	@FXML
-	private void initialize() throws SQLException {
-		//DELETE THIS ONE
-//TODO if/else here to switch between sql and .txt
-//		Ozlympic.importData();
-		
+	private void initialize() throws SQLException {		
 		displayEvent();
-//		sqlDB.selectAll(); 
-//			info.appendText("Connected");
-			
 	
-
-		
-		
-		
-		
 	}
 	
 	@FXML
@@ -141,7 +136,6 @@ public class MenuController  {
 
 
 	@FXML
-	//THIS IS ATTACHED TO THE SELECT BUTTON
 	private void choiceBox(ActionEvent event) throws IOException {
 		Parent alertPage =FXMLLoader.load(getClass().getResource("EventType.fxml"));
 		Scene alertPageScene = new Scene(alertPage);

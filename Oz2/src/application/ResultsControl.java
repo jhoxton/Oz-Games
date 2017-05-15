@@ -14,7 +14,14 @@ import javafx.stage.Stage;
 import ozlympic.Ozlympic;
 
 public class ResultsControl {
-	
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */
 	@FXML
 	private Button returnToMenu;
 	@FXML

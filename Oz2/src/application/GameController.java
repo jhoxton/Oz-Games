@@ -29,7 +29,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 public class GameController {
-	
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */	
 	@FXML
 	private Button home;	
 	@FXML 
@@ -60,7 +67,8 @@ public class GameController {
 	private ObservableList<String> offArrayList =FXCollections.observableArrayList();
 	@FXML
 	private ObservableList<String> offInEvent =FXCollections.observableArrayList();
-	
+		//TODO This doesn't need to be an arraylist as there is only one.
+		//Change to the string below 
 			@FXML
 			private String offString;
 	
@@ -68,7 +76,7 @@ public class GameController {
 	
 	@FXML
 	private void menu(ActionEvent event) throws IOException {
-		//TODO What the actual fuck?
+
 		rightDisplay.getItems().clear();
 		leftDisplay.getItems().clear();
 		offList.getItems().clear();
@@ -109,14 +117,14 @@ public class GameController {
 			Athlete currentAthlete = Ozlympic.eligableAthletes.get(i);					
 			String newEntry = currentAthlete.getName();
 			athleteDisplay.add(newEntry);	
-//			Ozlympic.competeingArray.remove(currentAthlete);
+
 		}
 		
 		for(int j=0;j<Ozlympic.offs.size();j++) { // Strings of Official names for selection
 			Official currOff = Ozlympic.offs.get(j);
 			String newEntry = currOff.getName();
 			offArrayList.add(newEntry);
-//			System.out.println(newEntry);
+
 		}
 		
 	}
@@ -143,11 +151,6 @@ public class GameController {
 								}
 							}
 						}
-							//TEST LOOP
-			//				for(int i =0;i < Ozlympic.eventAthletes.size(); i++) {
-			//					Athlete currentAthlete = Ozlympic.eventAthletes.get(i);
-			//					System.out.println("EventAthlete " + currentAthlete.getName());
-			//				}
 						matchOfficial();
 						Parent menuPage =FXMLLoader.load(getClass().getResource("Menu.fxml"));
 						Scene menuPageScene = new Scene(menuPage);
@@ -164,11 +167,9 @@ public class GameController {
 	}
 	@FXML
 	private void populate() {
-//		inGame.setItems(athleteAdded);
 		leftDisplay.setItems(athleteAdded);
 		addedOffList.setItems(offInEvent);
-		
-//		addedOffList.setItems(offString);
+
 		
 		
 		

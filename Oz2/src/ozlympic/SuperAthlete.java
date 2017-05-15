@@ -3,14 +3,20 @@ package ozlympic;
 import java.util.Random;
 
 public class SuperAthlete extends Athlete {
-
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */
 	public SuperAthlete(int id, String name, String type, int age, String state, int score) {
 		super(id, name,type, age, state, score);
 				
 	}
 	@Override
-	public int compete(String eventName) {
-//SuperAthlete objects use string match to determine event type
+	public int compete(String eventName) {//SuperAthlete objects use string match to determine event type
 		
 		int maximum = 0;
 		int minimum = 0;

@@ -1,7 +1,14 @@
 package ozlympic;
 
 public class Official {
-	
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */
 	private int id;
 	private String name;
 	private String type;
@@ -74,7 +81,6 @@ public class Official {
 
 	public void setScore(int score) {
 		score ++;
-		//TODO 
 		this.score = score;
 	}
 }

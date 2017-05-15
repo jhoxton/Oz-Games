@@ -1,13 +1,7 @@
 package ozlympic;
 import javafx.application.*;
-import javafx.event.*;
-import javafx.scene.*;
 import javafx.stage.Stage;
-import javafx.scene.control.*;
-import javafx.scene.layout.StackPane;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -41,9 +35,6 @@ import filio.sql;
 
 	public class Ozlympic extends Application {
 		
-//		public sql sqlDB = new sql();
-		
-		public static boolean isDBconnected = false;
 		public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); //ArrayList containing ALL athletes
 		public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals		
 		public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
@@ -55,7 +46,7 @@ import filio.sql;
 		static String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());		
 		public static Stage primaryStage;
 		
-		public static sql sqlDB = new sql();
+		public static sql sqlDB = new sql();//New database object
 
 		public void primaryStage() throws IOException { //Sets up the primary stage
 			
@@ -121,7 +112,6 @@ import filio.sql;
 		}
 	}
 	
-	//TODO Rewrite this as some sort of serialization
 	
 	public static void updateFile() { //Appends to the results file with the last match 
 		try {	
@@ -144,7 +134,7 @@ import filio.sql;
 	}
 	
 
-	public static Event selectGame(int option) {
+	public static Event selectGame(int option) { //Selects the game type based on a int
 		Event currentEvent = new Event();
 		switch(option) {
 			case 1: currentEvent = new RunningEvent();
@@ -168,29 +158,22 @@ import filio.sql;
 
 	
 
-	public static void finishEvent() {
+	public static void finishEvent() {	//Adds the events details (as a String) to the "done" array list
 
 	
 		String result = new String ("========\n" + 
 				"The winner of " + (upcoming.getCode()) + " was " + (upcoming.getWinner()) + "\n" +
 				"Second place was " + (upcoming.getSecond()) + "\n" +
 				"Third place was " + (upcoming.getThird()) + "\n" +
-				"The overseeing official was " + (upcoming.getOfficial().getName() + "" + (upcoming.getOfficial().getId())));
-		//Adds the events details (as a String) to the "done" array list
+				"The overseeing official was " + (upcoming.getOfficial().getName() + " " + (upcoming.getOfficial().getId())));
+	
 		done.add(result);
 
 	
 		
 	}
 
-	static void displayGames(ArrayList<Athlete> comp, ArrayList<Athlete> loadArray, ArrayList<Official> offs, ArrayList<String> done) {
-		
-		for (int i = 0; i < done.size(); i++) {
-			String test = done.get(i);
-		System.out.println(test);
-		} 	
-
-	}
+	
 
 
 }

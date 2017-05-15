@@ -2,12 +2,9 @@ package filio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import exceptions.ExceptionAlert;
 import ozlympic.Athlete;
 import ozlympic.Cyclist;
 import ozlympic.Official;
@@ -17,26 +14,25 @@ import ozlympic.SuperAthlete;
 import ozlympic.Swimmer;
 
 public class sql {
-    
-//	public boolean sqlConnected = false;
-//	
-	private Connection connect() {
-        // SQLite connection string
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */
+	private Connection connect() {     
         String url = "jdbc:sqlite:participants.sqlite";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
         	
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()); //Change exception here
         } 
         return conn;
     }
- 
-    
-    /*
-     * select all rows in the sql table
-     */
     public void selectAll(){
   
         String sql = "SELECT id, name, type, age, state, score FROM participants";
@@ -53,11 +49,8 @@ public class sql {
                                 int age = rs.getInt("age");
                                 String state = rs.getString("state");
                                 int score = rs.getInt("score");
-//                                   System.out.println(id + " " + name + " " + type + " " +age + " " +state + " " + score);
-
+                                
                                    Athlete test = new Athlete(id, name,type, age, state, score);
-//                                   sqlAthlete.add(test);
-//                                   Ozlympic.comp.add(test);
                 				
                                 if (test.getType().equals("Cyclist")) {				
                        				Cyclist cycleIn = new Cyclist(id, name,type, age, state, score);
@@ -86,38 +79,5 @@ public class sql {
         	
         	
         } 
-//        
-		
-    }  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	Connection connection;
-//	
-//	public sql(){
-//		connection = writeDB.connect();
-//		
-//		if(connection == null) {
-////TODO Make the below so (lol) ie Actually only load the text file if the sql don't work			
-//			ExceptionAlert nullSQL = new ExceptionAlert("participants.sqlite not found\nLoading data from text file");
-//		}
-//	}
-//		
-//	public boolean sqlFound() {
-//		try{ 
-//			return !connection.isClosed();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			return false;
-//		}	
-//	}
+    }
 }

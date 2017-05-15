@@ -8,7 +8,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 public class ExceptionAlert extends Exception {
-	
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */
 	public ExceptionAlert(String errMsg) {
 			System.out.println("Exception Caught");
 			

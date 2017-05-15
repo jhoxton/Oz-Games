@@ -13,6 +13,14 @@ import ozlympic.SuperAthlete;
 import ozlympic.Swimmer;
 
 public class readFile {
+	/**
+	 * Advanced Programming Semester 1 2017 Assignment 2
+	 *
+	 * @author Jake Novak s3609685
+	 *
+	 * github: github.com/jhoxton/AP
+	 *
+	 */
 	Scanner txt;
 	
 	public void openFile() {
@@ -73,12 +81,10 @@ public class readFile {
 			
 			Official test = new Official(id, name,type, age, state, score);
 		
-		if (test.getType().equals("Official")) {
-			Official OffIn = new Official(id, name,type, age, state, score);
-			offs.add(OffIn);				
-		}
-		
-		
+			if (test.getType().equals("Official")) {
+				Official OffIn = new Official(id, name,type, age, state, score);
+				offs.add(OffIn);				
+			}		
 		}
 		return inputOffs;
 	}
