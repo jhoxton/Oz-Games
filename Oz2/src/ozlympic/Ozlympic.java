@@ -71,7 +71,7 @@ import filio.sql;
 		
 		public static void main(String[] args) {	
 		
-		Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
+			Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
 
 			sqlDB.selectAll();
 

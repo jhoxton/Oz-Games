@@ -55,8 +55,6 @@ public class MenuController  {
 	@FXML
 	private Button start;
 	
-//	public sql sqlDB = new sql();
-	
 	@FXML
 	private void initialize() throws SQLException {		
 		displayEvent();
