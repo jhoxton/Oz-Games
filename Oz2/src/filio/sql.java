@@ -26,10 +26,10 @@ public class sql {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
-        	Ozlympic.sqlConnected = true;
+        	
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
+        } 
         return conn;
     }
  
@@ -44,7 +44,7 @@ public class sql {
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-           
+       
             while (rs.next()) {//Loops through the database
 
                 				int id = rs.getInt("id"); 
@@ -83,8 +83,10 @@ public class sql {
             }	
            
         } catch (SQLException e) {
-            System.out.println("SQL connection not found");
+        	
+        	
         } 
+//        
 		
     }  
 	

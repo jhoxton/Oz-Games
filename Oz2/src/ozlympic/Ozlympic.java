@@ -42,8 +42,8 @@ import filio.sql;
 	public class Ozlympic extends Application {
 		
 //		public sql sqlDB = new sql();
-		public static boolean sqlConnected = false;
 		
+		public static boolean isDBconnected = false;
 		public static ArrayList<Athlete> comp = new ArrayList<Athlete>(); //ArrayList containing ALL athletes
 		public static ArrayList<Official> offs = new ArrayList<Official>();//Arraylist containing all officals		
 		public static ArrayList<String> done = new ArrayList<String>(); //List of Strings with past game details
@@ -81,14 +81,11 @@ import filio.sql;
 		public static void main(String[] args) {	
 		
 		Ozlympic.outputFile();//Makes a new "gameResults.txt" file in Ozlympic
-		if(!sqlConnected) {
-			System.out.println("SQL Database found");
-			sqlDB.selectAll();
-		} else {
-			Ozlympic.importData();
-			System.out.println("Database not found, loading from text file");
-		}
 
+			sqlDB.selectAll();
+
+			Ozlympic.importData();
+		
 			launch(args);	
 		}
 
